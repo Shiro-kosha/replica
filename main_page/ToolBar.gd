@@ -10,6 +10,13 @@ onready var btns = {
 	$"%AboutBtn": Main.SECTIONS.ABOUT,
 }
 
+func _process(_delta):
+	for i in btn_box.get_children():
+		var mat = i.get("material")
+		if mat and mat is ShaderMaterial:
+			mat.set_shader_param("mouse_pos", get_viewport().get_mouse_position())
+			mat.set_shader_param("screen_size", get_viewport_rect().size)
+
 func _ready():
 	for btn in btn_box.get_children():
 		btn.connect("mouse_entered", self, "_on_btn_mouse_entered", [btn])

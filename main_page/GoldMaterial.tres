@@ -1,0 +1,55 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+// Базовый цвет золота
+uniform vec4 gold_color : hint_color = vec4(1.0, 0.766, 0.336, 1.0);
+
+// Сила блеска
+uniform float specular_strength = 1.5;
+
+// Направление диагонали (анизотропия)
+uniform vec2 anisotropy_dir = vec2(1.0, 1.0); // диагональ
+uniform float anisotropy_width : hint_range(0.01, 0.5) = 0.1; // ширина блика
+
+// Положение мыши и размер экрана
+uniform vec2 mouse_pos = vec2(0.0, 0.0);
+uniform vec2 screen_size = vec2(1024.0, 768.0);
+
+void fragment() {
+    // Цвет и альфа спрайта
+    vec4 tex = texture(TEXTURE, UV);
+
+    // Нормализованные координаты пикселя (0..1)
+    vec2 uv_screen = FRAGCOORD.xy / screen_size;
+
+    // Направление диагонали
+    vec2 dir = normalize(anisotropy_dir);
+
+    // Проекция пикселя и курсора на диагональ
+    float proj_pixel = dot(uv_screen, dir);
+    float proj_mouse = dot(mouse_pos / screen_size, dir);
+
+    // Расстояние вдоль диагонали
+    float dist = abs(proj_pixel - proj_mouse);
+
+    // Один блик с плавным градиентом
+    float highlight = smoothstep(anisotropy_width, 0.0, dist);
+
+    // Финальный цвет: блик только для непрозрачных пикселей
+    vec3 color = tex.rgb + gold_color.rgb * specular_strength * highlight;
+
+    // Умножаем на альфу текстуры
+    COLOR = vec4(color * tex.a, tex.a);
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/gold_color = Color( 1, 0.766, 0.336, 1 )
+shader_param/specular_strength = 1.2
+shader_param/anisotropy_dir = Vector2( 1, 1 )
+shader_param/anisotropy_width = 0.1
+shader_param/mouse_pos = Vector2( 0, 0 )
+shader_param/screen_size = Vector2( 1024, 768 )
