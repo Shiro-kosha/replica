@@ -18,5 +18,5 @@ margin_left = 960.0
 margin_right = 960.0
 margin_bottom = 980.0
 size_flags_horizontal = 6
-custom_constants/separation = 82
+custom_constants/separation = 30
 alignment = 1
