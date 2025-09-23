@@ -7,9 +7,12 @@ onready var col_mid = $"%ColMid"
 onready var col_right = $"%ColRight"
 onready var col_right_2 = $"%ColRight2"
 
-const T_DIR = "res://gallery/arts/"
-var TEXTURE = {}
+onready var ZoomImg = preload("res://gallery/ZoomImg.tscn")
 
+const T_DIR = "res://gallery/arts/"
+
+var TEXTURE = {}
+var zoom_inst
 
 func _ready():
 	pass
@@ -64,15 +67,16 @@ func fill():
 #		if dir.file_exists(path):
 		var img = iload(path)
 		var img_size = img.get_size()
-		var TR = TextureRect.new()
+		var TR = TextureButton.new()
 		var col = col_right
 		if img_size.x > img_size.y:
 			col = col_mid
 		else:
 			col = get_childless_col([col_left, col_right, col_right_2])
 			
-		TR.set("texture", img)
+		TR.set("texture_normal", img)
 		TR.set("expand", true)
+		TR.connect("pressed", self, "add_zoom", [img])
 		var msy = (img_size.y * col.rect_size.x) / img_size.x 
 		TR.rect_min_size.y = msy
 		col.add_child(TR)
@@ -88,3 +92,11 @@ func get_childless_col(colls_arr):
 func report(st):
 	pass
 #	$Label.text = str($Label.text, "\n\n", st)
+
+func add_zoom(img):
+	zoom_inst = ZoomImg.instance()
+	var wrap = CanvasLayer.new()
+	wrap.add_child(zoom_inst)
+	zoom_inst.connect("tree_exited", wrap, "queue_free")
+	self.add_child(wrap)
+	zoom_inst.set_image(img)
