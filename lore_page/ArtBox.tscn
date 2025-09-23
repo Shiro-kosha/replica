@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://lore_page/ArtBox.gd" type="Script" id=1]
+
+[node name="ArtBoxCent" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+script = ExtResource( 1 )
+
+[node name="ArtBox" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+margin_left = 960.0
+margin_right = 960.0
+margin_bottom = 980.0
+size_flags_horizontal = 6
+custom_constants/separation = 82
+alignment = 1

@@ -77,10 +77,12 @@ func fill():
 		TR.set("texture_normal", img)
 		TR.set("expand", true)
 		TR.connect("pressed", self, "add_zoom", [img])
-		var msy = (img_size.y * col.rect_size.x) / img_size.x 
-		TR.rect_min_size.y = msy
+		TR.rect_min_size.y = get_y(col.rect_size.x, img_size)
 		col.add_child(TR)
 		yield(get_tree().create_timer(0.1), "timeout")
+
+func get_y(x, img_size):
+	return  (img_size.y * x) / img_size.x 
 
 func get_childless_col(colls_arr):
 	var childless = col_left

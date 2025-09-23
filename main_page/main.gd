@@ -6,9 +6,9 @@ onready var dis_tw = $"%DisTW"
 enum SECTIONS { MAIN, GALLERY, LORE, ABOUT}
 
 onready var SCENES = {
-	SECTIONS.MAIN : preload("res://main_page/ArtBox.tscn"),
+	SECTIONS.MAIN : preload("res://lore_page/ArtBox.tscn"),
 	SECTIONS.GALLERY : preload("res://gallery/Gallery.tscn"),
-#	SECTIONS.LORE : preload("res://main_page/ArtBox.tscn"),
+	SECTIONS.LORE :  preload("res://lore_page/ArtBox.tscn"),
 #	SECTIONS.ABOUT : preload("res://main_page/ArtBox.tscn"),
 	}
 onready var spacer = $ScrollContainer/ContentBox/Spacer
