@@ -18,16 +18,16 @@ color = Color( 0, 0.00392157, 0.0117647, 0.843137 )
 margin_right = 1920.0
 margin_bottom = 1080.0
 custom_constants/margin_right = 200
-custom_constants/margin_top = 100
+custom_constants/margin_top = 50
 custom_constants/margin_left = 200
-custom_constants/margin_bottom = 100
+custom_constants/margin_bottom = 50
 
 [node name="Image" type="TextureRect" parent="Margin"]
 unique_name_in_owner = true
 margin_left = 200.0
-margin_top = 100.0
+margin_top = 50.0
 margin_right = 1720.0
-margin_bottom = 980.0
+margin_bottom = 1030.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
