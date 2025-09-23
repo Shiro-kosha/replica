@@ -7,9 +7,9 @@ onready var arts = [
 	]
 
 onready var art_names = [
-	preload("res://lore_page/aeon_strata.png"),
 	preload("res://lore_page/ai_sisters.png"),
-	preload("res://lore_page/iki_g.png")
+	preload("res://lore_page/iki_g.png"),
+	preload("res://lore_page/aeon_strata.png"),
 ]
 
 onready var BigIcon = preload("res://lore_page/BigIcon.tscn")

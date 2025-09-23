@@ -43,19 +43,19 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -247.0
-margin_top = -90.0
+margin_top = -66.0
 custom_constants/margin_right = 57
 custom_constants/margin_bottom = 26
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SocialBox"]
 margin_right = 190.0
-margin_bottom = 64.0
+margin_bottom = 40.0
 size_flags_horizontal = 8
 custom_constants/separation = 35
 
 [node name="TextureRect" type="TextureButton" parent="SocialBox/HBoxContainer"]
 margin_right = 40.0
-margin_bottom = 64.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 3 )
 expand = true
@@ -64,7 +64,7 @@ stretch_mode = 5
 [node name="TextureRect2" type="TextureButton" parent="SocialBox/HBoxContainer"]
 margin_left = 75.0
 margin_right = 115.0
-margin_bottom = 64.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 5 )
 expand = true
@@ -73,7 +73,7 @@ stretch_mode = 5
 [node name="TextureRect3" type="TextureButton" parent="SocialBox/HBoxContainer"]
 margin_left = 150.0
 margin_right = 190.0
-margin_bottom = 64.0
+margin_bottom = 40.0
 rect_min_size = Vector2( 40, 40 )
 texture_normal = ExtResource( 6 )
 expand = true
