@@ -49,6 +49,7 @@ func load_to_mainbox(content):
 		return loaded_content
 
 func _on_lore_graph_load_request(clan):
+	print("LODA: ", clan)
 	clear()
 	yield(dis_tw, "tween_all_completed")
 	var lg = load_to_mainbox(SECTIONS.LORE_GRAPH)

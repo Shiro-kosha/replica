@@ -17,21 +17,21 @@ autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1920.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="spacer2" type="MarginContainer" parent="HBoxContainer"]
 margin_right = 90.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 rect_min_size = Vector2( 90, 0 )
 
 [node name="ColLeft" type="VBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 100.0
 margin_right = 438.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
@@ -39,7 +39,7 @@ custom_constants/separation = 10
 unique_name_in_owner = true
 margin_left = 448.0
 margin_right = 1124.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 custom_constants/separation = 10
@@ -48,7 +48,7 @@ custom_constants/separation = 10
 unique_name_in_owner = true
 margin_left = 1134.0
 margin_right = 1472.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
@@ -56,12 +56,12 @@ custom_constants/separation = 10
 unique_name_in_owner = true
 margin_left = 1482.0
 margin_right = 1820.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
 [node name="spacer" type="MarginContainer" parent="HBoxContainer"]
 margin_left = 1830.0
 margin_right = 1920.0
-margin_bottom = 9046.0
+margin_bottom = 8766.0
 rect_min_size = Vector2( 90, 0 )

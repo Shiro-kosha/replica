@@ -6,6 +6,7 @@
 [ext_resource path="res://lore_page/ai_sisters.png" type="Texture" id=5]
 
 [node name="BigIcon" type="VBoxContainer"]
+modulate = Color( 0.631373, 0.505882, 0.384314, 1 )
 anchor_bottom = 1.0
 margin_right = 100.0
 size_flags_horizontal = 0
@@ -15,9 +16,8 @@ script = ExtResource( 1 )
 
 [node name="IconImg" type="TextureButton" parent="."]
 unique_name_in_owner = true
-modulate = Color( 1.2, 1.2, 1.2, 1 )
 margin_right = 100.0
-margin_bottom = 990.0
+margin_bottom = 710.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -40,9 +40,9 @@ unique_name_in_owner = true
 [node name="IconName" type="TextureRect" parent="."]
 unique_name_in_owner = true
 margin_left = 25.0
-margin_top = 1030.0
+margin_top = 750.0
 margin_right = 75.0
-margin_bottom = 1080.0
+margin_bottom = 800.0
 rect_min_size = Vector2( 50, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 0

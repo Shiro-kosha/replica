@@ -61,7 +61,6 @@ func iload(path):
 
 func fill():
 	report("Filling...")
-	var dir = Directory.new()
 	for i in DB.gallery.keys():
 		var path = str("res://gallery/arts/", i, ".jpg")
 #		if dir.file_exists(path):
@@ -91,9 +90,9 @@ func get_childless_col(colls_arr):
 			childless = i
 	return childless 
 
-func report(st):
+func report(_st):
 	pass
-#	$Label.text = str($Label.text, "\n\n", st)
+#	$Label.text = str($Label.text, "\n\n", _st)
 
 func add_zoom(img):
 	zoom_inst = ZoomImg.instance()
