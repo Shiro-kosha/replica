@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://lore_page/BigIcon.gd" type="Script" id=1]
 [ext_resource path="res://lore_page/frame.png" type="Texture" id=2]
 [ext_resource path="res://main_page/GoldMaterial.tres" type="Material" id=3]
-[ext_resource path="res://lore_page/art_1.png" type="Texture" id=4]
 [ext_resource path="res://lore_page/ai_sisters.png" type="Texture" id=5]
 
 [node name="BigIcon" type="VBoxContainer"]
@@ -14,7 +13,7 @@ size_flags_vertical = 3
 custom_constants/separation = 40
 script = ExtResource( 1 )
 
-[node name="IconImg" type="TextureRect" parent="."]
+[node name="IconImg" type="TextureButton" parent="."]
 unique_name_in_owner = true
 modulate = Color( 1.2, 1.2, 1.2, 1 )
 margin_right = 100.0
@@ -23,25 +22,14 @@ rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
-texture = ExtResource( 4 )
 expand = true
-stretch_mode = 6
+stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="IconImg"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = -5
-custom_constants/margin_top = -5
-custom_constants/margin_left = -5
-custom_constants/margin_bottom = -5
-
-[node name="Frame" type="TextureRect" parent="IconImg/MarginContainer"]
+[node name="Frame" type="TextureRect" parent="IconImg"]
 unique_name_in_owner = true
 material = ExtResource( 3 )
-margin_left = -5.0
-margin_top = -5.0
-margin_right = 105.0
-margin_bottom = 995.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
@@ -62,5 +50,6 @@ texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
-[connection signal="mouse_entered" from="IconImg" to="IconImg" method="_on_BigIcon_mouse_entered"]
-[connection signal="mouse_exited" from="IconImg" to="IconImg" method="_on_BigIcon_mouse_exited"]
+[connection signal="mouse_entered" from="IconImg" to="." method="_on_IconImg_mouse_entered"]
+[connection signal="mouse_exited" from="IconImg" to="." method="_on_IconImg_mouse_exited"]
+[connection signal="pressed" from="IconImg" to="." method="_on_IconImg_pressed"]

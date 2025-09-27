@@ -9,16 +9,19 @@ onready var frame = $"%Frame"
 onready var icon_name = $"%IconName"
 onready var icon_img = $"%IconImg"
 
+signal lore_graph_load_request(clan)
 
+var clan_name 
 
 func _ready():
 	self.set("modulate", UNMARKED)
 
-func init_as(i_img, i_name):
+func init_as(clan):
 	if !self.is_node_ready():
 		yield(self, "ready")
-	icon_img.texture = i_img
-	icon_name.texture = i_name
+	clan_name = clan.name
+	icon_img.texture_normal = clan.art
+	icon_name.texture = clan.art_name
 	icon_name.rect_min_size.x = 250#get_x(icon_name.rect_min_size.y, i_name.get_size())
 #	print(i_name.get_size(), get_x(icon_name.rect_min_size.y, i_name.get_size()))
 
@@ -31,15 +34,21 @@ func _process(_delta):
 func get_x(y, img_size):
 	return  (img_size.x * y) / img_size.y 
 
-func _on_BigIcon_mouse_entered():
-	glow(MARKED)
-
-
-func _on_BigIcon_mouse_exited():
-	glow(UNMARKED)
 
 func glow(state):
 	if glow_tw.is_active():
 		glow_tw.stop_all()
 	glow_tw.interpolate_property(self, "modulate", self.modulate, state, 0.2)
 	glow_tw.start()
+
+
+func _on_IconImg_mouse_entered():
+	glow(MARKED)
+
+
+func _on_IconImg_mouse_exited():
+	glow(UNMARKED)
+
+
+func _on_IconImg_pressed():
+	emit_signal("lore_graph_load_request", str(clan_name, "_clan"))

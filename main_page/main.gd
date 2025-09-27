@@ -1,24 +1,27 @@
 extends Control
 
-class_name Main
 onready var dis_tw = $"%DisTW"
 
-enum SECTIONS { MAIN, GALLERY, LORE, ABOUT}
+class_name Main
+enum SECTIONS { MAIN, GALLERY, LORE, ABOUT, LORE_GRAPH}
 
 onready var SCENES = {
 	SECTIONS.MAIN : preload("res://lore_page/ArtBox.tscn"),
 	SECTIONS.GALLERY : preload("res://gallery/Gallery.tscn"),
 	SECTIONS.LORE :  preload("res://lore_page/ArtBox.tscn"),
 #	SECTIONS.ABOUT : preload("res://main_page/ArtBox.tscn"),
+	SECTIONS.LORE_GRAPH: preload("res://lore_page/LoreGraph.tscn"),
 	}
 onready var spacer = $ScrollContainer/ContentBox/Spacer
 
 onready var content_box = $"%ContentBox"
 onready var tool_bar = $"%ToolBar"
 
+var inst: Main = null 
 var current_content = SECTIONS.MAIN
 
 func _ready():
+	inst = self
 	for btn in tool_bar.btns.keys():
 		btn.connect("pressed", self, "_on_content_request", [tool_bar.btns[btn]])
 	
@@ -43,6 +46,14 @@ func load_to_mainbox(content):
 		content_box.add_child(loaded_content)
 		dis_tw.interpolate_property(loaded_content, "modulate:a", 0, 1, 0.2)
 		dis_tw.start()
+		return loaded_content
+
+func _on_lore_graph_load_request(clan):
+	clear()
+	yield(dis_tw, "tween_all_completed")
+	var lg = load_to_mainbox(SECTIONS.LORE_GRAPH)
+	lg.load_clan(clan)
+	
 
 func clear():
 	for i in content_box.get_children():
