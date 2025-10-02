@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gallery/ZoomImg.gd" type="Script" id=1]
 [ext_resource path="res://main_page/menu_icons/close_1.png" type="Texture" id=2]
+[ext_resource path="res://main_page/menu_icons/arrow.png" type="Texture" id=3]
 
 [node name="ZoomImg" type="MarginContainer"]
 anchor_right = 1.0
@@ -35,6 +36,8 @@ margin_right = 1920.0
 margin_bottom = 800.0
 custom_constants/margin_right = 100
 custom_constants/margin_top = 50
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 50
 
 [node name="CloseBtn" type="TextureButton" parent="MarginContainer"]
 unique_name_in_owner = true
@@ -49,6 +52,31 @@ texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 
-[connection signal="mouse_entered" from="MarginContainer/CloseBtn" to="." method="_on_CloseBtn_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/CloseBtn" to="." method="_on_CloseBtn_mouse_exited"]
+[node name="RigthArrBtn" type="TextureButton" parent="MarginContainer"]
+unique_name_in_owner = true
+margin_left = 1760.0
+margin_top = 370.0
+margin_right = 1820.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 8
+size_flags_vertical = 6
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="LeftArrBtn" type="TextureButton" parent="MarginContainer"]
+unique_name_in_owner = true
+margin_left = 100.0
+margin_top = 370.0
+margin_right = 160.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 60, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+flip_h = true
+
 [connection signal="pressed" from="MarginContainer/CloseBtn" to="." method="_on_CloseBtn_pressed"]

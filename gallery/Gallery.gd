@@ -11,13 +11,15 @@ onready var ZoomImg = preload("res://gallery/ZoomImg.tscn")
 
 const T_DIR = "res://gallery/arts/"
 
-var TEXTURE = {}
+#var TEXTURE = {}
 var zoom_inst
+var pics_list = {}
+var zoomed_pic_id
 
 func _ready():
 	pass
 	DB = load_db()
-	report(DB)
+#	report(DB)
 	fill()
 
 func load_db():
@@ -49,11 +51,6 @@ func iload(path):
 		line = f.get_line()
 		if line.begins_with("path"):
 			break
-#		else:
-#			push_error("No 'path' found in file: %s" % path)
-#			return null
-	
-	# Убираем path=" и " с конца
 	line = line.replace("path=\"", "").replace("\"", "")
 	
 	return ResourceLoader.load(line)
@@ -75,10 +72,11 @@ func fill():
 			
 		TR.set("texture_normal", img)
 		TR.set("expand", true)
-		TR.connect("pressed", self, "add_zoom", [img])
+		TR.connect("pressed", self, "add_zoom", [i])
 		TR.rect_min_size.y = get_y(col.rect_size.x, img_size)
 		col.add_child(TR)
 		yield(get_tree().create_timer(0.1), "timeout")
+		pics_list[i] = img
 
 func get_y(x, img_size):
 	return  (img_size.y * x) / img_size.x 
@@ -94,10 +92,26 @@ func report(_st):
 	pass
 #	$Label.text = str($Label.text, "\n\n", _st)
 
-func add_zoom(img):
+func add_zoom(id):
 	zoom_inst = ZoomImg.instance()
 	var wrap = CanvasLayer.new()
 	wrap.add_child(zoom_inst)
 	zoom_inst.connect("tree_exited", wrap, "queue_free")
 	self.add_child(wrap)
-	zoom_inst.set_image(img)
+	zoom_inst.set_image(pics_list[id])
+	zoom_inst.connect("pic_changed", self, "zoom_next_pic")
+	zoomed_pic_id = id
+
+func zoom_next_pic(order):
+	var keys = pics_list.keys()
+	var curr_index = keys.find(zoomed_pic_id)
+	if curr_index == -1:
+		return # на всякий случай, если картинка не найдена
+	
+	var new_index = (curr_index + order) % keys.size()
+	if new_index < 0:
+		new_index += keys.size()  # чтобы не было отрицательных индексов
+	
+	var new_key = keys[new_index]
+	zoom_inst.set_image(pics_list[new_key])
+	zoomed_pic_id = new_key
