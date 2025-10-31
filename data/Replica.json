@@ -7,7 +7,21 @@
       "age": "No data\\n~100",
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
-      "role_in_the_clan": "Head_of_the_clan"
+      "role_in_the_clan": "Head of the clan",
+      "modifications": "Cyber parts: lower jaw, neck, left arm and upper part of the body, including half of the ribs + heart [no pulse]\nThe body has the ability to self-repair thanks to built-in nanobots that can repair damaged cells and tissues",
+      "Abilities": "Nano Armor\nWounds instantly seal with a dense black shell, like living shadow, while nanobots beneath repair damaged tissue. Re-k feels each strike as phantom pain — not real injury, but his body and nanobots react as if it were. He must consciously distribute the energy of blows to prevent internal damage.\n\nPain modulation: the system can reduce pain, allowing him to act even under severe hits, though ignoring pain and overload carries risks.\n\nEmotional suppression: emergency protocols dampen his reactions, keeping him calm but emotionally distant.\n\nShort-term overload: if strikes come too rapidly, nanobots activate chaotically, forming erratic armor patterns that signal system strain.",
+      "social_skills": 3,
+      "physical_fitness": 2,
+      "medical_skills": 0,
+      "crafting": 1,
+      "strategic_thinking": 3,
+      "leadership": 3,
+      "street smart": 2,
+      "hacking": 0,
+      "cybersecurity": 1,
+      "cyber augmentation": 3,
+      "ai_development": 0,
+      "cyber espionage": 0
     },
     "way": {
       "name": "-",
@@ -45,6 +59,10 @@
       "role_in_the_clan": "Medic"
     },
     "": {
+      "name": "Neera",
+      "fraction": "AI Sisters"
+    },
+    "dice": {
       "name": "Dai’sa",
       "age": "~24",
       "race_species": "Human / cyborg",
@@ -52,17 +70,17 @@
     }
   },
   "gallery": {
-    "bodyguard 2k": {
+    "Syeei 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]"
+      "tags": "[\"Syeei\"]"
     },
     "Kuroe [c] - 2k": {
       "clan": "IKI-G clan",
       "tags": "[\"Kuroe\"]"
     },
-    "Re-k - dreams (or) 2k": {
-      "clan": "IKI-G clan",
-      "tags": "[\"Re-k\"]"
+    "bodyguard 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"Syeei\", \"S-Xsan-7\"]"
     },
     "Re-k & Wei [bath] - 2k": {
       "clan": "IKI-G clan",
@@ -88,9 +106,9 @@
       "clan": "Aeon Strata",
       "tags": "[\"Syeei\"]"
     },
-    "Syeei 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]"
+    "Re-k - dreams (or) 2k": {
+      "clan": "IKI-G clan",
+      "tags": "[\"Re-k\"]"
     },
     "wei & re-k - night 2k": {
       "clan": "IKI-G clan",
