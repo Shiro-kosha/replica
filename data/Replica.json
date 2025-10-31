@@ -70,49 +70,60 @@
     }
   },
   "gallery": {
-    "Syeei 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]"
-    },
     "Kuroe [c] - 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Kuroe\"]"
-    },
-    "bodyguard 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]"
-    },
-    "Re-k & Wei [bath] - 2k": {
-      "clan": "IKI-G clan",
-      "tags": "[\"Re-k\", \"Wei\"]"
-    },
-    "Re-k [armor] 2k": {
-      "clan": "IKI-G clan",
-      "tags": "[\"Re-k\"]"
-    },
-    "S & S 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]"
-    },
-    "S-Xsan-7 & Syeei 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]"
-    },
-    "Syeei [corporation] - 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]"
+      "tags": "[\"Kuroe\"]",
+      "column": 1
     },
     "Syeei [hand] 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]"
+      "tags": "[\"Syeei\"]",
+      "column": 1
+    },
+    "Syeei [corporation] - 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"Syeei\"]",
+      "column": 2
+    },
+    "bodyguard 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"Syeei\", \"S-Xsan-7\"]",
+      "column": 2
     },
     "Re-k - dreams (or) 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Re-k\"]"
+      "tags": "[\"Re-k\"]",
+      "column": 2
+    },
+    "S & S 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"Syeei\", \"S-Xsan-7\"]",
+      "column": 2
+    },
+    "S-Xsan-7 & Syeei 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"Syeei\", \"S-Xsan-7\"]",
+      "column": 2
+    },
+    "Re-k & Wei [bath] - 2k": {
+      "clan": "IKI-G clan",
+      "tags": "[\"Re-k\", \"Wei\"]",
+      "column": 3
+    },
+    "Syeei 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"Syeei\"]",
+      "column": 3
+    },
+    "Re-k [armor] 2k": {
+      "clan": "IKI-G clan",
+      "tags": "[\"Re-k\"]",
+      "column": 4
     },
     "wei & re-k - night 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Re-k\", \"Wei\"]"
+      "tags": "[\"Re-k\", \"Wei\"]",
+      "column": 4
     }
   }
 }
