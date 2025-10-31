@@ -11,6 +11,14 @@ onready var ZoomImg = preload("res://gallery/ZoomImg.tscn")
 
 const T_DIR = "res://gallery/arts/"
 
+onready var col_num = {
+	1: col_left,
+	2: col_mid,
+	3: col_right,
+	4: col_right_2
+}
+
+
 #var TEXTURE = {}
 var zoom_inst
 var pics_list = {}
@@ -64,11 +72,11 @@ func fill():
 		var img = iload(path)
 		var img_size = img.get_size()
 		var TR = TextureButton.new()
-		var col = col_right
-		if img_size.x > img_size.y:
-			col = col_mid
-		else:
-			col = get_childless_col([col_left, col_right, col_right_2])
+		var col = col_num[int(DB.gallery[i].column)]
+#		if img_size.x > img_size.y:
+#			col = col_mid
+#		else:
+#			col = get_childless_col([col_left, col_right, col_right_2])
 			
 		TR.set("texture_normal", img)
 		TR.set("expand", true)
@@ -81,12 +89,12 @@ func fill():
 func get_y(x, img_size):
 	return  (img_size.y * x) / img_size.x 
 
-func get_childless_col(colls_arr):
-	var childless = col_left
-	for i in colls_arr:
-		if childless.get_child_count() > i.get_child_count():
-			childless = i
-	return childless 
+#func get_childless_col(colls_arr):
+#	var childless = col_left
+#	for i in colls_arr:
+#		if childless.get_child_count() > i.get_child_count():
+#			childless = i
+#	return childless 
 
 func report(_st):
 	pass
