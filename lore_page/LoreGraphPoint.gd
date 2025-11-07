@@ -2,6 +2,7 @@ extends Control
 onready var lore_graph_point = $"%LoreGraphPoint"
 onready var frame = $"%Frame"
 
+signal info_load_request
 
 func _process(_delta):
 	var mat = frame.get("material")
@@ -14,3 +15,7 @@ func init_as(character, clan, params):
 	self.anchor_left = params.left
 	self.anchor_right = params.right
 	self.margin_top = params.top
+
+
+func _on_LGPBtn_pressed():
+	emit_signal("info_load_request")

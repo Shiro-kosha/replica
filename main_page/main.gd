@@ -64,3 +64,4 @@ func clear():
 	dis_tw.start()
 	
 #	i.queue_free()
+

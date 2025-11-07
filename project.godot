@@ -24,6 +24,10 @@ config/name="Ss"
 run/main_scene="res://main_page/main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Data="*res://data/Data.tscn"
+
 [display]
 
 window/size/width=1920
