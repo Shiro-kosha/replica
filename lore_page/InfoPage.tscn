@@ -11,6 +11,7 @@
 [node name="InfoPage" type="MarginContainer"]
 margin_right = 1920.0
 margin_bottom = 800.0
+mouse_filter = 2
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -26,6 +27,7 @@ stretch_mode = 5
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_constants/margin_right = 30
 custom_constants/margin_top = 65
 custom_constants/margin_left = 25
@@ -35,8 +37,10 @@ margin_left = 25.0
 margin_top = 65.0
 margin_right = 1045.0
 margin_bottom = 700.0
+custom_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/HBoxContainer"]
+[node name="Avatar" type="TextureRect" parent="TextureRect/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 margin_right = 360.0
 margin_bottom = 600.0
 rect_min_size = Vector2( 360, 600 )
@@ -47,16 +51,16 @@ expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/HBoxContainer"]
-margin_left = 364.0
+margin_left = 370.0
 margin_right = 1020.0
-margin_bottom = 236.0
+margin_bottom = 194.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="NameLbl" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 656.0
-margin_bottom = 32.0
+margin_right = 650.0
+margin_bottom = 25.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Name: No data"
@@ -64,9 +68,9 @@ autowrap = true
 
 [node name="NicknameLbl" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 36.0
-margin_right = 656.0
-margin_bottom = 68.0
+margin_top = 29.0
+margin_right = 650.0
+margin_bottom = 54.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Nickname (s): No data"
@@ -74,9 +78,9 @@ autowrap = true
 
 [node name="AgeLbl" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 72.0
-margin_right = 656.0
-margin_bottom = 104.0
+margin_top = 58.0
+margin_right = 650.0
+margin_bottom = 83.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Age: ~ No data"
@@ -84,9 +88,9 @@ autowrap = true
 
 [node name="RaceLbl" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 108.0
-margin_right = 656.0
-margin_bottom = 140.0
+margin_top = 87.0
+margin_right = 650.0
+margin_bottom = 112.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Name: No data"
@@ -94,32 +98,32 @@ autowrap = true
 
 [node name="RoleLbl" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 144.0
-margin_right = 656.0
-margin_bottom = 176.0
+margin_top = 116.0
+margin_right = 650.0
+margin_bottom = 141.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Name: No data"
 autowrap = true
 
 [node name="HSeparator" type="HSeparator" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 180.0
-margin_right = 656.0
-margin_bottom = 200.0
+margin_top = 145.0
+margin_right = 650.0
+margin_bottom = 165.0
 custom_constants/separation = 20
 custom_styles/separator = SubResource( 1 )
 
 [node name="Modsbl" type="Label" parent="TextureRect/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 204.0
-margin_right = 656.0
-margin_bottom = 236.0
+margin_top = 169.0
+margin_right = 650.0
+margin_bottom = 194.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
 text = "Name: No data"
 autowrap = true
 
-[node name="TextureButton" type="TextureButton" parent="TextureRect"]
+[node name="GalleryBtn" type="TextureButton" parent="TextureRect"]
 margin_left = 798.0
 margin_top = 449.0
 margin_right = 1048.0
@@ -130,3 +134,5 @@ size_flags_vertical = 0
 texture_normal = ExtResource( 1 )
 expand = true
 stretch_mode = 5
+
+[connection signal="pressed" from="TextureRect/GalleryBtn" to="." method="_on_GalleryBtn_pressed"]

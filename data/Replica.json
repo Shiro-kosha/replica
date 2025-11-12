@@ -4,7 +4,7 @@
       "name": "-",
       "surname": "-",
       "nickname": "Re-k",
-      "age": "No data\n~100",
+      "age": "No data: ~100",
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
       "role_in_the_clan": "Head of the clan",
@@ -27,7 +27,7 @@
       "name": "-",
       "surname": "-",
       "nickname": "Wei Shi Mo",
-      "age": "No data\\n~24",
+      "age": "No data: ~24",
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan"
     },
@@ -35,7 +35,7 @@
       "name": "-",
       "surname": "-",
       "nickname": "Kuroé Rei En",
-      "age": "No data\\n~25",
+      "age": "No data: ~25",
       "race_species": "Wei's inner voice",
       "fraction": "IKI-G clan"
     },
@@ -58,7 +58,27 @@
       "fraction": "IKI-G clan",
       "role_in_the_clan": "Medic"
     },
-    "": {
+    "zatcy": {
+      "name": "Zatcy",
+      "age": "-",
+      "race_species": "Android",
+      "fraction": "IKI-G clan"
+    },
+    "sae": {
+      "name": "Syeei",
+      "age": 18,
+      "race_species": "Human / cyborg",
+      "fraction": "Aeon Strata"
+    },
+    "xinran": {
+      "name": "S-Xiǎo Sàn-7",
+      "nickname": "S-Xsan-7",
+      "age": "-",
+      "race_species": "Android",
+      "fraction": "Aeon Strata",
+      "role_in_the_clan": "Syeei's Bodyguard"
+    },
+    "niruo": {
       "name": "Neera",
       "fraction": "AI Sisters"
     },
@@ -83,22 +103,22 @@
     "Syeei [corporation] - 2k": {
       "clan": "Aeon Strata",
       "tags": "[\"Syeei\"]",
-      "column": 2
+      "column": 1
     },
     "bodyguard 2k": {
       "clan": "Aeon Strata",
       "tags": "[\"Syeei\", \"S-Xsan-7\"]",
-      "column": 2
+      "column": 1
     },
     "Re-k - dreams (or) 2k": {
       "clan": "IKI-G clan",
       "tags": "[\"Re-k\"]",
-      "column": 2
+      "column": 1
     },
     "S & S 2k": {
       "clan": "Aeon Strata",
       "tags": "[\"Syeei\", \"S-Xsan-7\"]",
-      "column": 2
+      "column": 1
     },
     "S-Xsan-7 & Syeei 2k": {
       "clan": "Aeon Strata",
@@ -108,22 +128,84 @@
     "Re-k & Wei [bath] - 2k": {
       "clan": "IKI-G clan",
       "tags": "[\"Re-k\", \"Wei\"]",
-      "column": 3
+      "column": 2
     },
     "Syeei 2k": {
       "clan": "Aeon Strata",
       "tags": "[\"Syeei\"]",
-      "column": 3
+      "column": 2
     },
     "Re-k [armor] 2k": {
       "clan": "IKI-G clan",
       "tags": "[\"Re-k\"]",
-      "column": 4
+      "column": 2
     },
     "wei & re-k - night 2k": {
       "clan": "IKI-G clan",
       "tags": "[\"Re-k\", \"Wei\"]",
-      "column": 4
+      "column": 2
+    }
+  },
+  "lore_graph": {
+    "rethink": {
+      "clan": "iki_g_clan",
+      "top": 200,
+      "left": "0.5",
+      "right": "0.5",
+      "binds": "[\"black_stream\", \"way\"]"
+    },
+    "black_stream": {
+      "clan": "iki_g_clan",
+      "top": 300,
+      "left": "0.2",
+      "right": "0.2",
+      "binds": "[\"saros\"]"
+    },
+    "way": {
+      "clan": "iki_g_clan",
+      "top": 300,
+      "left": "0.8",
+      "right": "0.8",
+      "binds": "[\"crimson\"]"
+    },
+    "shift_k": {
+      "clan": "iki_g_clan",
+      "top": 600,
+      "left": "0.5",
+      "right": "0.5",
+      "binds": "[\"black_stream\", \"way\", \"crimson\", \"saros\", \"rethink\", \"zatcy\"]"
+    },
+    "crimson": {
+      "clan": "iki_g_clan",
+      "top": 900,
+      "left": "0.65",
+      "right": "0.65",
+      "binds": "[\"saros\"]"
+    },
+    "saros": {
+      "clan": "iki_g_clan",
+      "top": 900,
+      "left": "0.35",
+      "right": "0.35"
+    },
+    "zatcy": {
+      "clan": "iki_g_clan",
+      "top": 1200,
+      "left": "0.5",
+      "right": "0.5"
+    },
+    "sae": {
+      "clan": "aeon_strata_clan",
+      "top": 450,
+      "left": "0.65",
+      "right": "0.65",
+      "binds": "[\"xinran\"]"
+    },
+    "xinran": {
+      "clan": "aeon_strata_clan",
+      "top": 450,
+      "left": "0.35",
+      "right": "0.35"
     }
   }
 }

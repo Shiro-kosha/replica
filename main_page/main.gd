@@ -22,6 +22,9 @@ var current_content = SECTIONS.MAIN
 
 func _ready():
 	inst = self
+	
+	Data.connect("gallery_load_request", self, "_on_gallery_load_request")
+	
 	for btn in tool_bar.btns.keys():
 		btn.connect("pressed", self, "_on_content_request", [tool_bar.btns[btn]])
 	
@@ -46,6 +49,10 @@ func load_to_mainbox(content):
 		content_box.add_child(loaded_content)
 		dis_tw.interpolate_property(loaded_content, "modulate:a", 0, 1, 0.2)
 		dis_tw.start()
+		
+		match content:
+			SECTIONS.GALLERY: loaded_content.fill()
+		
 		return loaded_content
 
 func _on_lore_graph_load_request(clan):
@@ -62,6 +69,16 @@ func clear():
 			dis_tw.interpolate_property(i, "modulate:a", 1, 0, 0.2)
 			dis_tw.connect("tween_all_completed", i, "queue_free")
 	dis_tw.start()
+
+func _on_gallery_load_request(char_id):
+	clear()
+	if dis_tw.is_active():
+		yield(dis_tw, "tween_all_completed")
 	
-#	i.queue_free()
+	var loaded_content = SCENES[SECTIONS.GALLERY].instance()
+	loaded_content.modulate.a = 0
+	content_box.add_child(loaded_content)
+	dis_tw.interpolate_property(loaded_content, "modulate:a", 0, 1, 0.2)
+	dis_tw.start()
+	loaded_content.fill(char_id)
 
