@@ -30,13 +30,22 @@ rect_min_size = Vector2( 90, 0 )
 [node name="ColLeft" type="VBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
 margin_left = 100.0
-margin_right = 438.0
+margin_right = 955.0
+margin_bottom = 8766.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="ColRight" type="VBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 965.0
+margin_right = 1820.0
 margin_bottom = 8766.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
 [node name="ColMid" type="VBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 margin_left = 448.0
 margin_right = 1124.0
 margin_bottom = 8766.0
@@ -44,17 +53,10 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 custom_constants/separation = 10
 
-[node name="ColRight" type="VBoxContainer" parent="HBoxContainer"]
-unique_name_in_owner = true
-margin_left = 1134.0
-margin_right = 1472.0
-margin_bottom = 8766.0
-size_flags_horizontal = 3
-custom_constants/separation = 10
-
 [node name="ColRight2" type="VBoxContainer" parent="HBoxContainer"]
 unique_name_in_owner = true
-margin_left = 1482.0
+visible = false
+margin_left = 1253.0
 margin_right = 1820.0
 margin_bottom = 8766.0
 size_flags_horizontal = 3

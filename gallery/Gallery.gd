@@ -13,9 +13,9 @@ const T_DIR = "res://gallery/arts/"
 
 onready var col_num = {
 	1: col_left,
-	2: col_mid,
-	3: col_right,
-	4: col_right_2
+	2: col_right,
+#	3: ,
+#	4: col_right_2
 }
 
 
@@ -25,24 +25,8 @@ var pics_list = {}
 var zoomed_pic_id
 
 func _ready():
-	fill()
-#
-#func load_db():
-#	var f = File.new()
-#	if f.file_exists("res://data/Replica.json"):
-#		var err = f.open("res://data/Replica.json", File.READ)
-#		if err != OK:
-#			report("Failed to open JSON file, code %s" % err)
-#			return {}
-#		var text = f.get_as_text()
-#		var parsed = JSON.parse(text)
-#		if parsed.error != OK:
-#			report("JSON parse error: %s (line %s)" % [parsed.error_string, parsed.error_line])
-#			return str("JSON parse error: %s (line %s)" % [parsed.error_string, parsed.error_line])
-#		return parsed.result
-#	else:
-#		report("no DataBase found!")
-#		return str("no DataBase found!")
+	pass
+#	fill()
 
 
 func iload(path):
@@ -61,37 +45,96 @@ func iload(path):
 	return ResourceLoader.load(line)
 
 
-func fill():
-	report("Filling...")
-	for i in DB.gallery.keys():
+#func fill():
+#	report("Filling...")
+#	for i in DB.gallery.keys():
+#		var path = str("res://gallery/arts/", i, ".jpg")
+##		if dir.file_exists(path):
+#		var img = iload(path)
+#		var img_size = img.get_size()
+#		var TR = TextureButton.new()
+#		var col = col_num[int(DB.gallery[i].column)]
+##		if img_size.x > img_size.y:
+##			col = col_mid
+##		else:
+##			col = get_childless_col([col_left, col_right, col_right_2])
+#
+#		TR.set("texture_normal", img)
+#		TR.set("expand", true)
+#		TR.connect("pressed", self, "add_zoom", [i])
+#		TR.rect_min_size.y = get_y(col.rect_size.x, img_size)
+#		col.add_child(TR)
+#		yield(get_tree().create_timer(0.1), "timeout")
+#		pics_list[i] = img
+
+func fill(tag = null):
+	print("LOADING: ", tag)
+	if !self.is_node_ready():
+		yield(self, "ready")
+	
+	var gallery = {}
+	if tag:
+		for i in DB.gallery.keys():
+			if parse_json(DB.gallery[i]["tags"]).has(tag):
+				gallery[i] = DB.gallery[i]
+	else:
+		gallery = DB.gallery
+		
+	var empty_window = null
+	var waiting_pic = null
+	for i in gallery.keys():
 		var path = str("res://gallery/arts/", i, ".jpg")
-#		if dir.file_exists(path):
+
 		var img = iload(path)
 		var img_size = img.get_size()
 		var TR = TextureButton.new()
-		var col = col_num[int(DB.gallery[i].column)]
-#		if img_size.x > img_size.y:
-#			col = col_mid
-#		else:
-#			col = get_childless_col([col_left, col_right, col_right_2])
-			
+		var col
+		if tag:
+			col = get_childless_col(col_num)
+		else:
+			col = col_num[int(gallery[i].column)]
+		var is_horizontal = img_size.x > img_size.y
 		TR.set("texture_normal", img)
 		TR.set("expand", true)
 		TR.connect("pressed", self, "add_zoom", [i])
-		TR.rect_min_size.y = get_y(col.rect_size.x, img_size)
-		col.add_child(TR)
+		var mul = ((1.0 + int(is_horizontal))/2.0)
+		TR.rect_min_size.y = get_y(col.rect_size.x * mul, img_size)
+		print(i, " ", TR.rect_min_size.y," - ", mul)
+		if is_horizontal:
+			col.add_child(TR)
+		else:
+			if empty_window is HBoxContainer:
+				empty_window.add_child(TR)
+				TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+#				TR.size_flags_vertical = Control.SIZE_EXPAND_FILL
+				empty_window = null
+			else:
+				empty_window = HBoxContainer.new()
+				col.add_child(empty_window)
+#				empty_window.rect_min_size = Vector2(200, 200)
+				empty_window.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+#				empty_window.size_flags_vertical = Control.SIZE_EXPAND_FILL
+				TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+#				TR.size_flags_vertical = Control.SIZE_EXPAND_FILL
+				empty_window.add_child(TR)
+		
+		
 		yield(get_tree().create_timer(0.1), "timeout")
 		pics_list[i] = img
+
+func fill_by_tag(tag):
+	pass
+
 
 func get_y(x, img_size):
 	return  (img_size.y * x) / img_size.x 
 
-#func get_childless_col(colls_arr):
-#	var childless = col_left
-#	for i in colls_arr:
-#		if childless.get_child_count() > i.get_child_count():
-#			childless = i
-#	return childless 
+func get_childless_col(colls_arr):
+	var childless = col_left
+	for i in colls_arr:
+		if childless.get_child_count() > i.get_child_count():
+			childless = i
+	return childless 
 
 func report(_st):
 	pass

@@ -3,43 +3,28 @@ onready var LGP = preload("res://lore_page/LoreGraphPoint.tscn")
 onready var graph_box = $"%GraphBox"
 onready var scroll_container = $"%ScrollContainer"
 
-
-
-
-
-var clans = {
-	"iki_g_clan":{
-		"rethink": {"top": 200, "left": 0.5, "right": 0.5, "binds": ["kuroe", "wei"]},
-		"kuroe": {"top": 300, "left": 0.2, "right": 0.2, "binds": ["saree"]},
-		"wei": {"top": 300, "left": 0.8, "right": 0.8, "binds": ["krisma"]},
-		"kaito": {"top": 600, "left": 0.5, "right": 0.5, "binds": ["kuroe", "wei", "krisma", "saree", "rethink", "zatcy"]},
-		"krisma": {"top": 900, "left": 0.65, "right": 0.65, "binds": ["saree"]},
-		"saree": {"top": 900, "left": 0.35, "right": 0.35, "binds": []},
-		"zatcy": {"top": 1200, "left": 0.5, "right": 0.5, "binds": []},
-		},
-	"aeon_strata_clan":{
-		"syeei": {"top": 450, "left": 0.65, "right": 0.65, "binds": ["x_san"]},
-		"x_san": {"top": 450, "left": 0.35, "right": 0.35},
-	}
-}
-
 var points = {}
 var curr_clan
 var lines = []
+var clan_tree = {}
+
 
 func load_clan(clan):
+	clan_tree = {}
+	for i in Data.DB.lore_graph.keys():
+		if Data.DB.lore_graph[i]["clan"] == clan:
+			clan_tree[i] = Data.DB.lore_graph[i]
 	
 	var scroll_size = 0
-	if clans.has(clan):
-		for i in clans[clan]:
-			var lgp = LGP.instance()
-			graph_box.add_child(lgp)
-			lgp.init_as(i, clan, clans[clan][i])
-			lgp.connect("info_load_request", self, "load_info_page", [i])
-			points[i] = lgp
-			curr_clan = clan
-			scroll_size = max(scroll_size, clans[clan][i]["top"] + 300)
-			print(clan, i)
+	for i in clan_tree.keys():
+		var lgp = LGP.instance()
+		graph_box.add_child(lgp)
+		lgp.init_as(i, clan, clan_tree[i])
+		lgp.connect("info_load_request", self, "load_info_page", [i])
+		points[i] = lgp
+		curr_clan = clan
+		scroll_size = max(scroll_size, clan_tree[i]["top"] + 300)
+		print(clan, i)
 	graph_box.rect_min_size.y = scroll_size
 	draw()
 
@@ -53,8 +38,8 @@ func _process(_delta):
 
 func draw():
 	for i in points:
-		if clans[curr_clan][i].has("binds"):
-			for bind in clans[curr_clan][i]["binds"]:
+		if clan_tree[i].has("binds"):
+			for bind in parse_json(clan_tree[i]["binds"]):
 				var line = Line2D.new()
 				line.width = 2
 				line.default_color = Color("a18162")
@@ -74,4 +59,3 @@ func load_info_page(char_id):
 	var info_page = load("res://lore_page/InfoPage.tscn").instance()
 	self.add_child(info_page)
 	info_page.fill(char_id)
-#	print(char_id.to_upper())

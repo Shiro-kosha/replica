@@ -2,6 +2,8 @@ extends Node
 
 onready var DB
 
+signal gallery_load_request(char_id)
+
 func _ready():
 	DB = load_db()
 
