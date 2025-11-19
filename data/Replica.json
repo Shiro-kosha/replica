@@ -96,57 +96,57 @@
   "gallery": {
     "Kuroe [c] - 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Kuroe\"]",
+      "tags": "[\"black_stream\"]",
       "column": 1
     },
     "Syeei [hand] 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]",
+      "tags": "[\"sae\"]",
       "column": 1
     },
     "Syeei [corporation] - 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]",
+      "tags": "[\"sae\"]",
       "column": 1
     },
     "bodyguard 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]",
+      "tags": "[\"sae\", \"xinran\"]",
       "column": 1
     },
     "Re-k - dreams (or) 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Re-k\"]",
+      "tags": "[\"rethink\"]",
       "column": 1
     },
     "S & S 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]",
+      "tags": "[\"sae\", \"xinran\"]",
       "column": 1
     },
     "S-Xsan-7 & Syeei 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\", \"S-Xsan-7\"]",
+      "tags": "[\"sae\", \"xinran\"]",
       "column": 2
     },
     "Re-k & Wei [bath] - 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Re-k\", \"Wei\"]",
+      "tags": "[\"rethink\", \"way\"]",
       "column": 2
     },
     "Syeei 2k": {
       "clan": "Aeon Strata",
-      "tags": "[\"Syeei\"]",
+      "tags": "[\"sae\"]",
       "column": 2
     },
     "Re-k [armor] 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Re-k\"]",
+      "tags": "[\"rethink\"]",
       "column": 2
     },
     "wei & re-k - night 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"Re-k\", \"Wei\"]",
+      "tags": "[\"rethink\", \"way\"]",
       "column": 2
     }
   },

@@ -12,10 +12,12 @@
 margin_right = 1920.0
 margin_bottom = 800.0
 mouse_filter = 2
+custom_constants/margin_left = 200
 script = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1075.0
+margin_left = 200.0
+margin_right = 1275.0
 margin_bottom = 700.0
 rect_min_size = Vector2( 1075, 700 )
 size_flags_horizontal = 0

@@ -6,7 +6,7 @@ class_name Main
 enum SECTIONS { MAIN, GALLERY, LORE, ABOUT, LORE_GRAPH}
 
 onready var SCENES = {
-	SECTIONS.MAIN : preload("res://lore_page/ArtBox.tscn"),
+	SECTIONS.MAIN : preload("res://main_page/TitlePage.tscn"),
 	SECTIONS.GALLERY : preload("res://gallery/Gallery.tscn"),
 	SECTIONS.LORE :  preload("res://lore_page/ArtBox.tscn"),
 #	SECTIONS.ABOUT : preload("res://main_page/ArtBox.tscn"),
@@ -32,8 +32,8 @@ func _ready():
 
 
 func _on_content_request(content):
-	if current_content == content:
-		return
+#	if current_content == content:
+#		return
 	current_content = content
 	clear()
 	load_to_mainbox(content)
@@ -51,7 +51,10 @@ func load_to_mainbox(content):
 		dis_tw.start()
 		
 		match content:
-			SECTIONS.GALLERY: loaded_content.fill()
+			SECTIONS.GALLERY:
+				loaded_content.fill()
+			SECTIONS.MAIN:
+				loaded_content.connect("content_load_request", self, "_on_content_request")
 		
 		return loaded_content
 

@@ -81,7 +81,6 @@ func fill(tag = null):
 		gallery = DB.gallery
 		
 	var empty_window = null
-	var waiting_pic = null
 	for i in gallery.keys():
 		var path = str("res://gallery/arts/", i, ".jpg")
 
@@ -118,9 +117,15 @@ func fill(tag = null):
 #				TR.size_flags_vertical = Control.SIZE_EXPAND_FILL
 				empty_window.add_child(TR)
 		
-		
 		yield(get_tree().create_timer(0.1), "timeout")
 		pics_list[i] = img
+		
+	if empty_window:
+		var TR = TextureButton.new()
+		TR.set("expand", true)
+		TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		empty_window.add_child(TR)
+		print("AAAAAAA")
 
 func fill_by_tag(tag):
 	pass
@@ -130,10 +135,11 @@ func get_y(x, img_size):
 	return  (img_size.y * x) / img_size.x 
 
 func get_childless_col(colls_arr):
-	var childless = col_left
-	for i in colls_arr:
-		if childless.get_child_count() > i.get_child_count():
-			childless = i
+#	yield(get_tree(), "idle_frame")
+	var childless =  colls_arr[1]
+	for i in colls_arr.keys():
+		if !childless or childless.get_child_count() > colls_arr[i].get_child_count():
+			childless = colls_arr[i]
 	return childless 
 
 func report(_st):
