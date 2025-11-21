@@ -200,16 +200,22 @@
     },
     "sae": {
       "clan": "aeon_strata_clan",
-      "top": 450,
+      "top": 300,
       "left": "0.65",
       "right": "0.65",
       "binds": "[\"xinran\"]"
     },
     "xinran": {
       "clan": "aeon_strata_clan",
-      "top": 450,
+      "top": 300,
       "left": "0.35",
       "right": "0.35"
+    },
+    "niruo": {
+      "clan": "ai_sisters",
+      "top": 300,
+      "left": "0.5",
+      "right": "0.5"
     }
   }
 }
