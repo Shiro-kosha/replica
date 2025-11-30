@@ -10,6 +10,7 @@ var clan_tree = {}
 
 
 func load_clan(clan):
+	print("LOADING CLAN: ", clan)
 	clan_tree = {}
 	for i in Data.DB.lore_graph.keys():
 		if Data.DB.lore_graph[i]["clan"] == clan:
