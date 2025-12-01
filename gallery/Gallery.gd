@@ -81,6 +81,7 @@ func fill(tag = null):
 		gallery = DB.gallery
 		
 	var empty_window = null
+	var empty_window_col
 	for i in gallery.keys():
 		var path = str("res://gallery/arts/", i, ".jpg")
 
@@ -102,19 +103,21 @@ func fill(tag = null):
 		if is_horizontal:
 			col.add_child(TR)
 		else:
-			if empty_window is HBoxContainer:
+			if empty_window is HBoxContainer and empty_window_col == col:
 				empty_window.add_child(TR)
 				TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-#				TR.size_flags_vertical = Control.SIZE_EXPAND_FILL
 				empty_window = null
 			else:
+				if empty_window and empty_window_col != col:
+					var ETR = TextureButton.new()
+					ETR.set("expand", true)
+					ETR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+					empty_window.add_child(ETR)
 				empty_window = HBoxContainer.new()
+				empty_window_col = col
 				col.add_child(empty_window)
-#				empty_window.rect_min_size = Vector2(200, 200)
 				empty_window.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-#				empty_window.size_flags_vertical = Control.SIZE_EXPAND_FILL
 				TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-#				TR.size_flags_vertical = Control.SIZE_EXPAND_FILL
 				empty_window.add_child(TR)
 		
 		yield(get_tree().create_timer(0.1), "timeout")
@@ -125,7 +128,6 @@ func fill(tag = null):
 		TR.set("expand", true)
 		TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		empty_window.add_child(TR)
-		print("AAAAAAA")
 
 func fill_by_tag(tag):
 	pass
