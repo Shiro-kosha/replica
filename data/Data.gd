@@ -3,6 +3,7 @@ extends Node
 onready var DB
 
 signal gallery_load_request(char_id)
+signal lore_graph_load_request(clan_id)
 
 func _ready():
 	DB = load_db()

@@ -24,6 +24,7 @@ func _ready():
 	inst = self
 	
 	Data.connect("gallery_load_request", self, "_on_gallery_load_request")
+	Data.connect("lore_graph_load_request", self, "_on_lore_graph_load_request")
 	
 	for btn in tool_bar.btns.keys():
 		btn.connect("pressed", self, "_on_content_request", [tool_bar.btns[btn]])
@@ -32,8 +33,6 @@ func _ready():
 
 
 func _on_content_request(content):
-#	if current_content == content:
-#		return
 	current_content = content
 	clear()
 	load_to_mainbox(content)

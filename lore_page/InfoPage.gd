@@ -11,6 +11,8 @@ onready var avatar = $"%Avatar"
 onready var DB = Data.DB
 
 var page_char_id
+var clan
+
 
 onready var DEFAULTS = [
 	{"lbl": name_lbl, "id": "name", "base": "Name: "},
@@ -32,7 +34,7 @@ func fill(char_id):
 			i.lbl.set("text", str(i.base, DB["char"][char_id].get(i.id, "No Data.")))
 	else:
 		printerr("NOT FOUND: ", char_id)
-	var clan = Data.DB.lore_graph[char_id].get("clan")
+	clan = Data.DB.lore_graph[char_id].get("clan")
 	if clan:
 		avatar.set("texture", load(str("res://lore_page/", clan, "/inf_page/", char_id, ".png")))
 
@@ -44,3 +46,7 @@ func fill(char_id):
 
 func _on_GalleryBtn_pressed():
 	Data.emit_signal("gallery_load_request", page_char_id)
+
+
+func _on_BackBtn_pressed():
+	Data.emit_signal("lore_graph_load_request", clan)
