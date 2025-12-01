@@ -110,11 +110,6 @@
       "tags": "[\"sae\"]",
       "column": 1
     },
-    "Syeei [corporation] - 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"sae\"]",
-      "column": 1
-    },
     "bodyguard 2k": {
       "clan": "Aeon Strata",
       "tags": "[\"sae\", \"xinran\"]",
@@ -133,6 +128,16 @@
     "S-Xsan-7 & Syeei 2k": {
       "clan": "Aeon Strata",
       "tags": "[\"sae\", \"xinran\"]",
+      "column": 1
+    },
+    "Saree & Krisma collage - 2k": {
+      "clan": "IKI-G clan",
+      "tags": "[\"crimson\", \"saros\"]",
+      "column": 1
+    },
+    "Syeei [corporation] - 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"sae\"]",
       "column": 2
     },
     "Re-k & Wei [bath] - 2k": {
@@ -140,14 +145,14 @@
       "tags": "[\"rethink\", \"way\"]",
       "column": 2
     },
-    "Syeei 2k": {
-      "clan": "Aeon Strata",
-      "tags": "[\"sae\"]",
-      "column": 2
-    },
     "Re-k [armor] 2k": {
       "clan": "IKI-G clan",
       "tags": "[\"rethink\"]",
+      "column": 2
+    },
+    "Syeei 2k": {
+      "clan": "Aeon Strata",
+      "tags": "[\"sae\"]",
       "column": 2
     },
     "wei & re-k - night 2k": {
@@ -155,13 +160,10 @@
       "tags": "[\"rethink\", \"way\"]",
       "column": 2
     },
-    "Saree & Krisma collage - 2k": {
-      "clan": "IKI-G clan",
-      "tags": "[\"crimson\", \"saros\"]"
-    },
     "Kuroe [3]": {
       "clan": "IKI-G clan",
-      "tags": "[\"black_stream\"]"
+      "tags": "[\"black_stream\"]",
+      "column": 2
     }
   },
   "lore_graph": {
