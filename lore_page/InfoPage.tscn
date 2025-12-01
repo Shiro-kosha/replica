@@ -13,6 +13,7 @@
 margin_right = 1920.0
 margin_bottom = 800.0
 mouse_filter = 2
+custom_constants/margin_right = 50
 custom_constants/margin_left = 200
 script = ExtResource( 5 )
 
@@ -147,8 +148,8 @@ expand = true
 stretch_mode = 5
 
 [node name="BackBtn" type="TextureButton" parent="."]
-margin_left = 1885.0
-margin_right = 1920.0
+margin_left = 1835.0
+margin_right = 1870.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 35, 35 )
 size_flags_horizontal = 8
