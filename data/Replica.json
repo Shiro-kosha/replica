@@ -1,8 +1,6 @@
 {
   "char": {
     "rethink": {
-      "name": "-",
-      "surname": "-",
       "nickname": "Re-k",
       "age": "~100",
       "race_species": "Human / cyborg",
@@ -24,18 +22,16 @@
       "cyber espionage": 0
     },
     "way": {
-      "name": "-",
-      "surname": "-",
-      "nickname": "Wei Shi Mo",
+      "nickname": "Wei Shi Ryou",
       "age": "~24",
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
+      "role_in_the_clan": "Assistant",
       "modifications": "Implants under the collarbones"
     },
     "black_stream": {
-      "name": "-",
-      "surname": "-",
-      "nickname": "Kuroé Rei En",
+      "name": "Kuroé Rei En",
+      "nickname": "Kuroe",
       "age": "~24",
       "race_species": "Wei's inner voice",
       "fraction": "IKI-G clan"
@@ -48,26 +44,35 @@
     },
     "saros": {
       "name": "Saree",
+      "nickname": "Ree",
       "age": 21,
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
-      "role_in_the_clan": "Engineer"
+      "role_in_the_clan": "Cybersecurity Engineer"
     },
     "crimson": {
       "name": "Krisma",
+      "nickname": "Riss",
       "age": 25,
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
-      "role_in_the_clan": "Сyber defense specialist"
+      "role_in_the_clan": "Mechanical Engineer",
+      "modifications": "Cyber Legs"
+    },
+    "sour_cherry": {
+      "name": "Erisou",
+      "nickname": "Eri",
+      "race_species": "Human / cyborg",
+      "fraction": "IKI-G clan"
     },
     "zatcy": {
       "name": "Zatcy",
-      "age": "-",
       "race_species": "Android",
       "fraction": "IKI-G clan"
     },
     "sae": {
       "name": "Syeei",
+      "nickname": "Sy",
       "age": 19,
       "race_species": "Human / cyborg",
       "fraction": "Aeon Strata",
@@ -77,7 +82,6 @@
     "xinran": {
       "name": "S-Xiǎo Sàn-7",
       "nickname": "S-Xsan-7",
-      "age": "-",
       "race_species": "Android",
       "fraction": "Aeon Strata",
       "role_in_the_clan": "Syeei's Bodyguard"
@@ -150,6 +154,14 @@
       "clan": "IKI-G clan",
       "tags": "[\"rethink\", \"way\"]",
       "column": 2
+    },
+    "Saree & Krisma collage - 2k": {
+      "clan": "IKI-G clan",
+      "tags": "[\"crimson\", \"saros\"]"
+    },
+    "Kuroe [3]": {
+      "clan": "IKI-G clan",
+      "tags": "[\"black_stream\"]"
     }
   },
   "lore_graph": {
@@ -187,6 +199,13 @@
       "left": "0.65",
       "right": "0.65",
       "binds": "[\"saros\"]"
+    },
+    "sour_cherry": {
+      "clan": "iki_g_clan",
+      "top": 900,
+      "left": "0.9",
+      "right": "0.9",
+      "binds": "[\"crimson\"]"
     },
     "saros": {
       "clan": "iki_g_clan",
