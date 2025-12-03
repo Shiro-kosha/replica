@@ -19,7 +19,7 @@ onready var DEFAULTS = [
 	{"lbl": nickname_lbl, "id": "nickname", "base": "Nickname (s): "},
 	{"lbl": age_lbl, "id": "age", "base": "Age: "},
 	{"lbl": race_lbl, "id": "race_species", "base": "Race / Species: "},
-	{"lbl": role_lbl, "id": "role_in_the_clan", "base": "Role in the clan:"},
+	{"lbl": role_lbl, "id": "role_in_the_clan", "base": "Role in the clan: "},
 	{"lbl": modsbl, "id": "modifications", "base": "Modifications:\n"},
 #	{"lbl": name_lbl, "id": "name"}
 ]
