@@ -1,0 +1,61 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 bottom_left_color : hint_color = vec4(0.408, 0.290, 0.180, 1.0);
+uniform vec4 top_right_color : hint_color = vec4(0.882, 0.847, 0.761, 1.0);
+uniform vec4 highlight_color : hint_color = vec4(1.0, 0.766, 0.336, 1.0);
+uniform float specular_strength = 1.2;
+uniform vec2 anisotropy_dir = vec2(1.0, 1.0);
+uniform float anisotropy_width : hint_range(0.01, 0.5) = 0.1;
+uniform vec2 mouse_pos = vec2(0.0, 0.0);
+uniform vec2 screen_size = vec2(1024.0, 768.0);
+uniform vec2 panel_size = vec2(300.0, 700.0);
+uniform float border_width = 10.0;
+uniform float corner_radius = 50.0;
+
+float rounded_rect_distance(vec2 point, vec2 half_size, float radius) {
+	vec2 q = abs(point) - half_size + vec2(radius);
+	return length(max(q, vec2(0.0))) + min(max(q.x, q.y), 0.0) - radius;
+}
+
+void fragment() {
+	vec4 base = COLOR;
+	vec2 pixel = UV * panel_size;
+	vec2 half_size = panel_size * 0.5;
+	vec2 point = pixel - half_size;
+
+	float outer_dist = rounded_rect_distance(point, half_size, corner_radius);
+	float inner_radius = max(corner_radius - border_width, 0.0);
+	float inner_dist = rounded_rect_distance(point, half_size - vec2(border_width), inner_radius);
+	float border_mask = step(outer_dist, 0.0) * step(0.0, inner_dist);
+
+	float gradient_pos = clamp((UV.x + (1.0 - UV.y)) * 0.5, 0.0, 1.0);
+	vec4 gradient_color = mix(bottom_left_color, top_right_color, gradient_pos);
+
+	vec2 uv_screen = FRAGCOORD.xy / screen_size;
+	vec2 dir = normalize(anisotropy_dir);
+	float proj_pixel = dot(uv_screen, dir);
+	float proj_mouse = dot(mouse_pos / screen_size, dir);
+	float dist = abs(proj_pixel - proj_mouse);
+	float highlight = smoothstep(anisotropy_width, 0.0, dist);
+
+	vec3 border_color = gradient_color.rgb + highlight_color.rgb * specular_strength * highlight;
+	COLOR = mix(base, vec4(border_color, base.a), border_mask);
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/bottom_left_color = Color( 0.407843, 0.290196, 0.180392, 1 )
+shader_param/top_right_color = Color( 0.882353, 0.847059, 0.760784, 1 )
+shader_param/highlight_color = Color( 1, 0.766, 0.336, 1 )
+shader_param/specular_strength = 1.2
+shader_param/anisotropy_dir = Vector2( 1, 1 )
+shader_param/anisotropy_width = 0.1
+shader_param/mouse_pos = Vector2( 0, 0 )
+shader_param/screen_size = Vector2( 1024, 768 )
+shader_param/panel_size = Vector2( 300, 750 )
+shader_param/border_width = 10.0
+shader_param/corner_radius = 50.0

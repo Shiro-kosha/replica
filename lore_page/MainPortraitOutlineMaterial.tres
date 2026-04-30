@@ -1,0 +1,121 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 bottom_left_color : hint_color = vec4(0.408, 0.290, 0.180, 1.0);
+uniform vec4 top_right_color : hint_color = vec4(0.882, 0.847, 0.761, 1.0);
+uniform vec4 highlight_color : hint_color = vec4(1.0, 0.766, 0.336, 1.0);
+uniform float specular_strength = 1.2;
+uniform vec2 anisotropy_dir = vec2(1.0, 1.0);
+uniform float anisotropy_width : hint_range(0.01, 0.5) = 0.1;
+uniform vec2 mouse_pos = vec2(0.0, 0.0);
+uniform vec2 screen_size = vec2(1024.0, 768.0);
+uniform vec2 target_size = vec2(700.0, 700.0);
+uniform float outline_width = 10.0;
+uniform float alpha_threshold : hint_range(0.0, 1.0) = 0.01;
+
+void fragment() {
+	vec2 outline_size = target_size + vec2(outline_width * 2.0);
+	vec2 mask_uv = (UV * outline_size - vec2(outline_width)) / target_size;
+
+	float center_alpha = 0.0;
+	if (mask_uv.x >= 0.0 && mask_uv.x <= 1.0 && mask_uv.y >= 0.0 && mask_uv.y <= 1.0) {
+		center_alpha = texture(TEXTURE, mask_uv).a;
+	}
+	float min_alpha = center_alpha;
+	float max_alpha = center_alpha;
+	vec2 radius = vec2(outline_width) / target_size;
+	float diagonal = 0.70710678;
+	vec2 diagonal_radius = radius * diagonal;
+
+	vec2 sample_uv = mask_uv + vec2(radius.x, 0.0);
+	float alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv + vec2(-radius.x, 0.0);
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv + vec2(0.0, radius.y);
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv + vec2(0.0, -radius.y);
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv + diagonal_radius;
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv - diagonal_radius;
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv + vec2(diagonal_radius.x, -diagonal_radius.y);
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+	sample_uv = mask_uv + vec2(-diagonal_radius.x, diagonal_radius.y);
+	alpha = 0.0;
+	if (sample_uv.x >= 0.0 && sample_uv.x <= 1.0 && sample_uv.y >= 0.0 && sample_uv.y <= 1.0) {
+		alpha = texture(TEXTURE, sample_uv).a;
+	}
+	min_alpha = min(min_alpha, alpha);
+	max_alpha = max(max_alpha, alpha);
+
+	float outline_alpha = step(alpha_threshold, max_alpha) * step(min_alpha, alpha_threshold);
+	if (outline_alpha <= 0.0) {
+		discard;
+	}
+
+	float gradient_pos = clamp((UV.x + (1.0 - UV.y)) * 0.5, 0.0, 1.0);
+	vec4 gradient_color = mix(bottom_left_color, top_right_color, gradient_pos);
+
+	vec2 uv_screen = FRAGCOORD.xy / screen_size;
+	vec2 dir = normalize(anisotropy_dir);
+	float proj_pixel = dot(uv_screen, dir);
+	float proj_mouse = dot(mouse_pos / screen_size, dir);
+	float dist = abs(proj_pixel - proj_mouse);
+	float highlight = smoothstep(anisotropy_width, 0.0, dist);
+
+	vec3 color = gradient_color.rgb + highlight_color.rgb * specular_strength * highlight;
+	COLOR = vec4(color * outline_alpha, outline_alpha * gradient_color.a);
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/bottom_left_color = Color( 0.408, 0.29, 0.18, 1 )
+shader_param/top_right_color = Color( 0.882, 0.847, 0.761, 1 )
+shader_param/highlight_color = Color( 1, 0.766, 0.336, 1 )
+shader_param/specular_strength = 1.2
+shader_param/anisotropy_dir = Vector2( 1, 1 )
+shader_param/anisotropy_width = 0.1
+shader_param/mouse_pos = Vector2( 0, 0 )
+shader_param/screen_size = Vector2( 1024, 768 )
+shader_param/target_size = Vector2( 700, 700 )
+shader_param/outline_width = 10.0
+shader_param/alpha_threshold = 0.01

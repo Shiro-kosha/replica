@@ -1,0 +1,44 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 preview_size = vec2(120.0, 120.0);
+uniform vec2 texture_size = vec2(1.0, 1.0);
+uniform float corner_radius = 25.0;
+
+void fragment() {
+	float texture_aspect = texture_size.x / texture_size.y;
+	float preview_aspect = preview_size.x / preview_size.y;
+	vec2 image_uv = UV;
+
+	if (texture_aspect > preview_aspect) {
+		float scale = preview_aspect / texture_aspect;
+		image_uv.x = (UV.x - 0.5) * scale + 0.5;
+	} else {
+		float scale = texture_aspect / preview_aspect;
+		image_uv.y = (UV.y - 0.5) * scale + 0.5;
+	}
+
+	if (image_uv.x < 0.0 || image_uv.x > 1.0 || image_uv.y < 0.0 || image_uv.y > 1.0) {
+		COLOR = vec4(0.0, 0.0, 0.0, 0.0);
+	} else {
+	vec4 tex = texture(TEXTURE, image_uv);
+	vec2 half_size = preview_size * 0.5;
+	vec2 point = UV * preview_size - half_size;
+	vec2 q = abs(point) - half_size + vec2(corner_radius);
+	float dist = length(max(q, vec2(0.0))) + min(max(q.x, q.y), 0.0) - corner_radius;
+	if (dist > 0.0) {
+		COLOR = vec4(tex.rgb, 0.0);
+	} else {
+		COLOR = tex;
+	}
+	}
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/preview_size = Vector2( 120, 120 )
+shader_param/texture_size = Vector2( 1, 1 )
+shader_param/corner_radius = 25.0

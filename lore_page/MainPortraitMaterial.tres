@@ -1,0 +1,47 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D portrait_texture;
+uniform vec2 portrait_size = vec2(1.0, 1.0);
+uniform vec2 target_size = vec2(1.0, 1.0);
+uniform float alpha_threshold : hint_range(0.0, 1.0) = 0.01;
+
+void fragment() {
+	vec4 mask = texture(TEXTURE, UV);
+	if (mask.a <= alpha_threshold) {
+		discard;
+	}
+
+	float portrait_aspect = portrait_size.x / portrait_size.y;
+	float target_aspect = target_size.x / target_size.y;
+	vec2 portrait_uv = UV;
+
+	if (portrait_aspect > target_aspect) {
+		float scale = target_aspect / portrait_aspect;
+		portrait_uv.x = (UV.x - 0.5) * scale + 0.5;
+	} else {
+		float scale = portrait_aspect / target_aspect;
+		portrait_uv.y = (UV.y - 0.5) * scale + 0.5;
+	}
+
+	bool outside_portrait = portrait_uv.x < 0.0 || portrait_uv.x > 1.0 || portrait_uv.y < 0.0 || portrait_uv.y > 1.0;
+	if (outside_portrait) {
+		COLOR = mask;
+	} else {
+		vec4 portrait = texture(portrait_texture, portrait_uv);
+		if (portrait.a <= alpha_threshold) {
+			COLOR = mask;
+		} else {
+			COLOR = vec4(mix(mask.rgb, portrait.rgb, portrait.a), mask.a);
+		}
+	}
+}
+"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/portrait_size = Vector2( 1, 1 )
+shader_param/target_size = Vector2( 1, 1 )
+shader_param/alpha_threshold = 0.01
