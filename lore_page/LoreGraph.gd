@@ -2,6 +2,19 @@ extends MarginContainer
 onready var LGP = preload("res://lore_page/LoreGraphPoint.tscn")
 onready var graph_box = $"%GraphBox"
 onready var scroll_container = $"%ScrollContainer"
+onready var info_box = $"%InfoBox"
+
+
+onready var info_title_lbl = $"%InfoTitleLbl"
+onready var philosophy_lbl = $"%PhilosophyLbl"
+onready var structure_lbl = $"%StructureLbl"
+onready var location_lbl = $"%LocationLbl"
+onready var resources_lbl = $"%ResourcesLbl"
+onready var ex_relation_lbl = $"%Ex_relationLbl"
+
+
+
+onready var DB = Data.DB
 
 var points = {}
 var curr_clan
@@ -28,6 +41,10 @@ func load_clan(clan):
 		print(clan, i)
 	graph_box.rect_min_size.y = scroll_size
 	draw()
+	yield(get_tree(), "idle_frame")
+	_update_gold_panel_material(info_box)
+	fill_info(clan)
+	
 
 func _process(_delta):
 	for i in lines:
@@ -57,6 +74,28 @@ func get_center(node):
 
 func load_info_page(char_id):
 	scroll_container.hide()
+	info_box.hide()
 	var info_page = load("res://lore_page/InfoPage.tscn").instance()
 	self.add_child(info_page)
 	info_page.fill(char_id)
+
+func fill_info(clan):
+	var clan_info = DB.clans[clan]
+	info_title_lbl.text = clan_info.name
+#
+	philosophy_lbl.text = str(" ", clan_info.philosophy)
+	structure_lbl.text = str(" ", clan_info.structure)
+	location_lbl.text = str(" ", clan_info.location)
+	resources_lbl.text = str(" ", clan_info.resources)
+#	ex_relation_lbl.text = str(" ", clan_info.ex_relation)
+#
+	
+	
+
+func _update_gold_panel_material(panel):
+	var panel_size = panel.rect_size
+	if panel_size == Vector2():
+		panel_size = panel.rect_min_size
+	panel.material.set_shader_param("panel_size", panel_size)
+	panel.material.set_shader_param("mouse_pos", get_viewport().get_mouse_position())
+	panel.material.set_shader_param("screen_size", get_viewport_rect().size)

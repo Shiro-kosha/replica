@@ -7,7 +7,7 @@
       "fraction": "IKI-G clan",
       "role_in_the_clan": "Head of the clan",
       "modifications": "Cyber parts: lower jaw, neck, left arm and upper part of the body, including half of the ribs + heart [no pulse]\nThe body has the ability to self-repair thanks to built-in nanobots that can repair damaged cells and tissues",
-      "Abilities": "Nano Armor\nWounds instantly seal with a dense black shell, like living shadow, while nanobots beneath repair damaged tissue. Re-k feels each strike as phantom pain — not real injury, but his body and nanobots react as if it were. He must consciously distribute the energy of blows to prevent internal damage.\n\nPain modulation: the system can reduce pain, allowing him to act even under severe hits, though ignoring pain and overload carries risks.\n\nEmotional suppression: emergency protocols dampen his reactions, keeping him calm but emotionally distant.\n\nShort-term overload: if strikes come too rapidly, nanobots activate chaotically, forming erratic armor patterns that signal system strain.",
+      "abilities": "Nano Armor\nWounds instantly seal with a dense black shell, like living shadow, while nanobots beneath repair damaged tissue. Re-k feels each strike as phantom pain — not real injury, but his body and nanobots react as if it were. He must consciously distribute the energy of blows to prevent internal damage.\n\nPain modulation: the system can reduce pain, allowing him to act even under severe hits, though ignoring pain and overload carries risks.\n\nEmotional suppression: emergency protocols dampen his reactions, keeping him calm but emotionally distant.\n\nShort-term overload: if strikes come too rapidly, nanobots activate chaotically, forming erratic armor patterns that signal system strain.",
       "social_skills": 3,
       "physical_fitness": 2,
       "medical_skills": 0,
@@ -97,6 +97,32 @@
       "age": "~27",
       "race_species": "Human / cyborg",
       "fraction": "No clan"
+    }
+  },
+  "clans": {
+    "iki_g_clan": {
+      "name": "IKI-G",
+      "philosophy": "Name and meaning: Derived from the Japanese \"Ikigai\"—the meaning of life, calling. The search for individual purpose within a community.\nMotto/Essence: A place for those seeking inner harmony and self-realization. Complete freedom in determining one's destiny.\nSymbolism: The \"Tree of the Path\" is a branched network, where each branch symbolizes the unique goals and trajectories of the participants, and the root is the clan leader, connecting everyone together.",
+      "structure": "There is no strict hierarchy or rules. Equality and guidance prevail.\nThe most important tenet is non-judgment. Everyone has the right to choose their own path, no matter how strange it may seem to others. Discipline is perceived not as a prison, but as a working tool.",
+      "location": "Base: A modified old complex. A former archive building with an integrated botanical garden.\nAtmosphere: A synthesis of past architecture, vibrant indoor nature, and modern modifications.",
+      "resources": "Completing small orders and missions:\n\nSearching for and collecting rare spare parts/technologies to restore equipment.\nCapture robots\nRecycling obsolete robots/technologies – purchasing obsolete robot models from corporations or on the black market. Recycling for sale or for personal use.\nEngaging in cyberarchaeology – searching for and analyzing lost information in abandoned corporate archives.",
+      "ex_relation": 1
+    },
+    "aeon_strata_clan": {
+      "name": "Aeon Strata",
+      "philosophy": "1",
+      "structure": "1",
+      "location": "1",
+      "resources": "1",
+      "ex_relation": 1
+    },
+    "ai_sisters_clan": {
+      "name": "AI_Sisters",
+      "philosophy": "1",
+      "structure": "1",
+      "location": "1",
+      "resources": "1",
+      "ex_relation": 1
     }
   },
   "gallery": {
