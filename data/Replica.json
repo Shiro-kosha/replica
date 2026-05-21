@@ -208,7 +208,7 @@
       "top": 200,
       "left": "0.5",
       "right": "0.5",
-      "binds": "[\"black_stream\", \"way\"]"
+      "binds": "[\"shift_k\", \"cicat\", \"way\"]"
     },
     "cicat": {
       "clan": "iki_g_clan",
@@ -219,7 +219,7 @@
     },
     "black_stream": {
       "clan": "iki_g_clan",
-      "top": 300,
+      "top": 450,
       "left": "0.9",
       "right": "0.9",
       "binds": "[\"way\"]"
