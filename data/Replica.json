@@ -8,20 +8,11 @@
       "fraction": "IKI-G clan",
       "role_in_the_clan": "Head of the clan",
       "identity_semantics": "Re-k — [eng.] Rethink - to reconsider. The ability to transform others' perceptions; to guide others in rethinking their path and self-discovery [the basis of an IKI-G leader].\nRè (热) — Hot / Heat. Below is the keyword \"Fire\" (灬). On the right is 丸 (wán) — \"pill,\" historically 丸 (wán) — a person bent under weight.\nKè — (克): To overcome / To endure\nMeaning: \"Overcoming heat.\" One who can withstand colossal pressure, other people's destructive emotions, and the scorching truth.\nFunction: The system's mental filter / \"Pill.\" Takes the brunt of the blow ➔ accumulates and “digests” the heavy thoughts of others ➔ neutralizes chaos ➔ helps others find their true path [“ikigai”].",
-      "modifications": "Cyber parts: lower jaw, neck, left arm and upper part of the body, including half of the ribs + heart [no pulse]\nThe body has the ability to self-repair thanks to built-in nanobots that can repair damaged cells and tissues",
-      "abilities": "Nano Armor\nWounds instantly seal with a dense black shell, like living shadow, while nanobots beneath repair damaged tissue. Re-k feels each strike as phantom pain — not real injury, but his body and nanobots react as if it were. He must consciously distribute the energy of blows to prevent internal damage.\n\nPain modulation: the system can reduce pain, allowing him to act even under severe hits, though ignoring pain and overload carries risks.\n\nEmotional suppression: emergency protocols dampen his reactions, keeping him calm but emotionally distant.\n\nShort-term overload: if strikes come too rapidly, nanobots activate chaotically, forming erratic armor patterns that signal system strain.",
-      "social_skills": 3,
-      "physical_fitness": 2,
-      "medical_skills": 0,
-      "crafting": 1,
-      "strategic_thinking": 3,
-      "leadership": 3,
-      "street smart": 2,
-      "hacking": 0,
-      "cybersecurity": 1,
-      "cyber augmentation": 3,
-      "ai_development": 0,
-      "cyber espionage": 0
+      "concept_role": "-",
+      "modifications": "Cyber parts: lower jaw, neck, left arm and upper part of the body, including half of the ribs + heart [no pulse]. Nano Armor\nWounds instantly seal with a dense black shell, like living shadow, while nanobots beneath repair damaged tissue. Re-k feels each strike as phantom pain — not real injury, but his body and nanobots react as if it were. He must consciously distribute the energy of blows to prevent internal damage.\n\nPain modulation: the system can reduce pain, allowing him to act even under severe hits, though ignoring pain and overload carries risks.\n\nEmotional suppression: emergency protocols dampen his reactions, keeping him calm but emotionally distant.\n\nShort-term overload: if strikes come too rapidly, nanobots activate chaotically, forming erratic armor patterns that signal system strain.\nThe body has the ability to self-repair thanks to built-in nanobots that can repair damaged cells and tissues",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "way": {
       "name": "Wei",
@@ -30,27 +21,51 @@
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
       "role_in_the_clan": "Assistant",
-      "modifications": "Implants under the collarbones"
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "Implants under the collarbones",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "black_stream": {
       "name": "Kuroé Rei En",
       "nickname": "Kuroe",
       "age": "~24",
       "race_species": "Wei's inner voice",
-      "fraction": "IKI-G clan"
+      "fraction": "IKI-G clan",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "no modifications",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "cicat": {
       "name": "Qi Qingsu",
       "nickname": "Qingsu, Qi Qiao",
+      "age": "~27",
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
-      "role_in_the_clan": "Supply, logistics"
+      "role_in_the_clan": "Supply, logistics",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "Cyber hand",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "shift_k": {
       "name": "Kaito",
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
-      "role_in_the_clan": "Medic"
+      "role_in_the_clan": "Medic",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "-",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "saros": {
       "name": "Saree",
@@ -58,7 +73,13 @@
       "age": 21,
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
-      "role_in_the_clan": "Cybersecurity Engineer"
+      "role_in_the_clan": "Cybersecurity Engineer",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "-",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "crimson": {
       "name": "Krisma",
@@ -67,18 +88,35 @@
       "race_species": "Human / cyborg",
       "fraction": "IKI-G clan",
       "role_in_the_clan": "Mechanical Engineer",
-      "modifications": "Cyber Legs"
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "Cyber Legs",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "sour_cherry": {
       "name": "Erisou",
       "nickname": "Eri",
       "race_species": "Human / cyborg",
-      "fraction": "IKI-G clan"
+      "fraction": "IKI-G clan",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "Right arm, shoulder, part of the face",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "zatcy": {
       "name": "Zatcy",
       "race_species": "Android",
-      "fraction": "IKI-G clan"
+      "fraction": "IKI-G clan",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "-",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "sae": {
       "name": "Syeei",
@@ -87,26 +125,49 @@
       "race_species": "Human / cyborg",
       "fraction": "Aeon Strata",
       "role_in_the_clan": "Head of the Aeon Strata corporation",
-      "modifications": "Cyber hand [right]"
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "Cyber hand [right]",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "xinran": {
       "name": "S-Xiǎo Sàn-7",
       "nickname": "S-Xsan-7",
       "race_species": "Android",
       "fraction": "Aeon Strata",
-      "role_in_the_clan": "Syeei's Bodyguard"
+      "role_in_the_clan": "Syeei's Bodyguard",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "-",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "niruo": {
       "name": "Neera",
       "race_species": "Android",
       "fraction": "AI Sisters",
-      "role_in_the_clan": "One of the sisters"
+      "role_in_the_clan": "One of the sisters",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "-",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     },
     "dice": {
       "name": "Dai’sa",
       "age": "~27",
       "race_species": "Human / cyborg",
-      "fraction": "No clan"
+      "fraction": "No clan",
+      "identity_semantics": "-",
+      "concept_role": "-",
+      "modifications": "-",
+      "character": "-",
+      "relationship": "-",
+      "trivia": "-"
     }
   },
   "clans": {
