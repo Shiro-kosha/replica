@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://lore_page/UI/gallery_button.png" type="Texture" id=1]
 [ext_resource path="res://lore_page/iki_g_clan/inf_page/photo_frame.png" type="Texture" id=2]
@@ -12,6 +12,12 @@
 [ext_resource path="res://lore_page/UI/ClassicGoldPanelStyle.tres" type="StyleBox" id=10]
 [ext_resource path="res://lore_page/UI/ClassicGoldPanelMaterial.tres" type="Material" id=11]
 [ext_resource path="res://data/Inter_18pt-ExtraLight.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://lore_page/UI/categories_buttons/categories_button.png" type="Texture" id=13]
+[ext_resource path="res://lore_page/UI/categories_buttons/character.png" type="Texture" id=14]
+[ext_resource path="res://lore_page/UI/categories_buttons/relationship.png" type="Texture" id=15]
+[ext_resource path="res://lore_page/UI/categories_buttons/trivia.png" type="Texture" id=16]
+[ext_resource path="res://lore_page/UI/categories_buttons/concept_role.png" type="Texture" id=17]
+[ext_resource path="res://lore_page/UI/categories_buttons/modifications.png" type="Texture" id=18]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -21,6 +27,19 @@ font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 18
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 3
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=5]
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 12 )
@@ -84,6 +103,7 @@ autowrap = true
 
 [node name="InfoNameLbl" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 margin_top = 42.0
 margin_right = 348.0
 margin_bottom = 65.0
@@ -94,9 +114,9 @@ autowrap = true
 
 [node name="InfoNicknameLbl" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 69.0
+margin_top = 42.0
 margin_right = 348.0
-margin_bottom = 92.0
+margin_bottom = 65.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Nickname (s): No data"
@@ -104,9 +124,9 @@ autowrap = true
 
 [node name="InfoAgeLbl" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 96.0
+margin_top = 69.0
 margin_right = 348.0
-margin_bottom = 119.0
+margin_bottom = 92.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Age: No data"
@@ -114,9 +134,9 @@ autowrap = true
 
 [node name="InfoRaceLbl" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 123.0
+margin_top = 96.0
 margin_right = 348.0
-margin_bottom = 146.0
+margin_bottom = 119.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Race / Species: No data"
@@ -124,9 +144,9 @@ autowrap = true
 
 [node name="InfoRoleLbl" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 150.0
+margin_top = 123.0
 margin_right = 348.0
-margin_bottom = 173.0
+margin_bottom = 146.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Role in the clan: No data"
@@ -145,12 +165,330 @@ text = "Modifications:
 No data"
 autowrap = true
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
-margin_top = 177.0
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
+margin_top = 150.0
 margin_right = 348.0
-margin_bottom = 178.0
+margin_bottom = 153.0
+rect_min_size = Vector2( 0, 3 )
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
+margin_top = 157.0
+margin_right = 348.0
+margin_bottom = 158.0
 rect_min_size = Vector2( 0, 1 )
 color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
+margin_top = 162.0
+margin_right = 348.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 0, 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer"]
+margin_top = 169.0
+margin_right = 348.0
+margin_bottom = 362.0
+
+[node name="CatTitleLbl" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 348.0
+margin_bottom = 23.0
+size_flags_horizontal = 7
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "CATEGORIES"
+align = 1
+autowrap = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 348.0
+margin_bottom = 193.0
+custom_constants/margin_top = 5
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+margin_top = 5.0
+margin_right = 348.0
+margin_bottom = 156.0
+custom_constants/vseparation = 8
+columns = 2
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+margin_left = 11.0
+margin_right = 161.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 100.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Concept"
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+margin_left = 187.0
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 133.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Modifications"
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+margin_left = 11.0
+margin_top = 53.0
+margin_right = 161.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 108.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Character"
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+margin_left = 187.0
+margin_top = 53.0
+margin_right = 337.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 124.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Relationship"
+
+[node name="TextureButton5" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+margin_left = 11.0
+margin_top = 106.0
+margin_right = 161.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 78.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Trivia"
+
+[node name="TextureButton6" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+visible = false
+margin_left = 187.0
+margin_top = 106.0
+margin_right = 337.0
+margin_bottom = 151.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 133.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Modifications"
 
 [node name="FandomBox" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
 material = ExtResource( 11 )
@@ -159,6 +497,48 @@ margin_right = 400.0
 margin_bottom = 710.0
 size_flags_vertical = 3
 custom_styles/panel = ExtResource( 10 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/FandomBox"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 384.0
+margin_bottom = 284.0
+custom_constants/margin_top = 10
+custom_constants/margin_left = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 368.0
+margin_bottom = 268.0
+
+[node name="ISTitleLbl" type="Label" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 363.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Identity Semantics / Etymology of Code"
+align = 1
+autowrap = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer"]
+margin_top = 83.0
+margin_right = 363.0
+margin_bottom = 258.0
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="IdentitySemanticsLbl" type="Label" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 351.0
+margin_bottom = 283.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Role in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
+autowrap = true
 
 [node name="MainPortrait" type="TextureRect" parent="HBoxContainer"]
 material = ExtResource( 8 )

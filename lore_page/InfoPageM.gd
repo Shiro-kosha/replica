@@ -14,6 +14,10 @@ onready var featured_list = $"HBoxContainer/FeaturedBox/VBoxContainer/ScrollCont
 onready var clan_grid = $"HBoxContainer/ClanBox/VBoxContainer/ScrollContainer/GridContainer"
 onready var clan_nav_box = $"HBoxContainer/ClanBox/VBoxContainer/ClanNavBox"
 
+onready var is_title_lbl = $"%ISTitleLbl"
+onready var identity_semantics_lbl = $"%IdentitySemanticsLbl"
+
+
 onready var DB = Data.DB
 
 var page_char_id
@@ -278,13 +282,25 @@ func fill(char_id):
 	_fill_featured_list(char_id)
 	if DB.char.keys().has(char_id):
 		var char_data = DB["char"][char_id]
-		info_title_lbl.text = char_data.get("nickname", char_data.get("name", char_id))
+		info_title_lbl.text = char_data.get("name", char_data.get("nickname", char_id))
 		for i in DEFAULTS:
 			i.lbl.set("text", str(i.base, char_data.get(i.id, "No Data.")))
+		
+		var is_android = char_data.race_species == "Android"
+		if is_android:
+			is_title_lbl.text = "Etymology of Code"
+		else:
+			is_title_lbl.text = "Identity Semantics"
+		
+		identity_semantics_lbl.text = char_data.identity_semantics
+		
 	else:
 		info_title_lbl.text = char_id
 		printerr("NOT FOUND: ", char_id)
 	clan = Data.DB.lore_graph[char_id].get("clan")
+	
+	
+	
 	if clan:
 		_fill_clan_grid(clan)
 		var portrait_texture = load(str("res://lore_page/", clan, "/inf_page/", char_id, ".png"))
@@ -294,6 +310,7 @@ func fill(char_id):
 			_update_main_portrait_outline_size()
 			main_portrait.material.set_shader_param("portrait_texture", portrait_texture)
 			main_portrait.material.set_shader_param("portrait_size", portrait_texture.get_size())
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
