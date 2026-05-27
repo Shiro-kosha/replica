@@ -58,6 +58,8 @@ func draw():
 	for i in points:
 		if clan_tree[i].has("binds"):
 			for bind in parse_json(clan_tree[i]["binds"]):
+				if !points.has(bind):
+					return
 				var line = Line2D.new()
 				line.width = 2
 				line.default_color = Color("a18162")

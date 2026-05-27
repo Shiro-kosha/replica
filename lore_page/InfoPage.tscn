@@ -62,7 +62,7 @@ margin_left = 50.0
 margin_top = 10.0
 margin_right = 1870.0
 margin_bottom = 720.0
-custom_constants/separation = 20
+custom_constants/separation = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 400.0
@@ -215,7 +215,8 @@ margin_bottom = 156.0
 custom_constants/vseparation = 8
 columns = 2
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+[node name="MainBtn" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 11.0
 margin_right = 161.0
 margin_bottom = 45.0
@@ -224,7 +225,7 @@ size_flags_horizontal = 6
 texture_normal = ExtResource( 13 )
 expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/MainBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -233,14 +234,60 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/MainBtn/MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 146.0
 margin_bottom = 41.0
 custom_constants/separation = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/MainBtn/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 37, 37 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/MainBtn/MarginContainer/HBoxContainer"]
+margin_left = 40.0
+margin_top = 8.0
+margin_right = 74.0
+margin_bottom = 28.0
+size_flags_horizontal = 2
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Main"
+
+[node name="ConceptBtn" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 187.0
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+size_flags_horizontal = 6
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ConceptBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ConceptBtn/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 146.0
+margin_bottom = 41.0
+custom_constants/separation = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ConceptBtn/MarginContainer/HBoxContainer"]
 margin_right = 37.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 37, 37 )
@@ -250,7 +297,7 @@ texture = ExtResource( 17 )
 expand = true
 stretch_mode = 6
 
-[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ConceptBtn/MarginContainer/HBoxContainer"]
 margin_left = 40.0
 margin_top = 8.0
 margin_right = 100.0
@@ -260,16 +307,18 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Concept"
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
-margin_left = 187.0
-margin_right = 337.0
-margin_bottom = 45.0
+[node name="ModBtn" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 11.0
+margin_top = 53.0
+margin_right = 161.0
+margin_bottom = 98.0
 rect_min_size = Vector2( 150, 45 )
 size_flags_horizontal = 6
 texture_normal = ExtResource( 13 )
 expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ModBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -278,14 +327,14 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ModBtn/MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 146.0
 margin_bottom = 41.0
 custom_constants/separation = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ModBtn/MarginContainer/HBoxContainer"]
 margin_right = 37.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 37, 37 )
@@ -295,7 +344,7 @@ texture = ExtResource( 18 )
 expand = true
 stretch_mode = 6
 
-[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton2/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/ModBtn/MarginContainer/HBoxContainer"]
 margin_left = 40.0
 margin_top = 8.0
 margin_right = 133.0
@@ -305,17 +354,18 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Modifications"
 
-[node name="TextureButton3" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
-margin_left = 11.0
+[node name="CharBtn" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
+margin_left = 187.0
 margin_top = 53.0
-margin_right = 161.0
+margin_right = 337.0
 margin_bottom = 98.0
 rect_min_size = Vector2( 150, 45 )
 size_flags_horizontal = 6
 texture_normal = ExtResource( 13 )
 expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/CharBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -324,14 +374,14 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/CharBtn/MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 146.0
 margin_bottom = 41.0
 custom_constants/separation = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/CharBtn/MarginContainer/HBoxContainer"]
 margin_right = 37.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 37, 37 )
@@ -341,7 +391,7 @@ texture = ExtResource( 14 )
 expand = true
 stretch_mode = 6
 
-[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton3/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/CharBtn/MarginContainer/HBoxContainer"]
 margin_left = 40.0
 margin_top = 8.0
 margin_right = 108.0
@@ -351,53 +401,8 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
 text = "Character"
 
-[node name="TextureButton4" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
-margin_left = 187.0
-margin_top = 53.0
-margin_right = 337.0
-margin_bottom = 98.0
-rect_min_size = Vector2( 150, 45 )
-size_flags_horizontal = 6
-texture_normal = ExtResource( 13 )
-expand = true
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/margin_right = 4
-custom_constants/margin_top = 4
-custom_constants/margin_left = 4
-custom_constants/margin_bottom = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4/MarginContainer"]
-margin_left = 4.0
-margin_top = 4.0
-margin_right = 146.0
-margin_bottom = 41.0
-custom_constants/separation = 3
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4/MarginContainer/HBoxContainer"]
-margin_right = 37.0
-margin_bottom = 37.0
-rect_min_size = Vector2( 37, 37 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 15 )
-expand = true
-stretch_mode = 6
-
-[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton4/MarginContainer/HBoxContainer"]
-margin_left = 40.0
-margin_top = 8.0
-margin_right = 124.0
-margin_bottom = 28.0
-size_flags_horizontal = 2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 5 )
-text = "Relationship"
-
-[node name="TextureButton5" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+[node name="RelationBtn" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 11.0
 margin_top = 106.0
 margin_right = 161.0
@@ -407,7 +412,7 @@ size_flags_horizontal = 6
 texture_normal = ExtResource( 13 )
 expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/RelationBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -416,35 +421,35 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/RelationBtn/MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 146.0
 margin_bottom = 41.0
 custom_constants/separation = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/RelationBtn/MarginContainer/HBoxContainer"]
 margin_right = 37.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 37, 37 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 16 )
+texture = ExtResource( 15 )
 expand = true
 stretch_mode = 6
 
-[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton5/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/RelationBtn/MarginContainer/HBoxContainer"]
 margin_left = 40.0
 margin_top = 8.0
-margin_right = 78.0
+margin_right = 124.0
 margin_bottom = 28.0
 size_flags_horizontal = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "Trivia"
+text = "Relationship"
 
-[node name="TextureButton6" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
-visible = false
+[node name="TriviaBtn" type="TextureButton" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 187.0
 margin_top = 106.0
 margin_right = 337.0
@@ -454,7 +459,7 @@ size_flags_horizontal = 6
 texture_normal = ExtResource( 13 )
 expand = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TriviaBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -463,32 +468,32 @@ custom_constants/margin_top = 4
 custom_constants/margin_left = 4
 custom_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TriviaBtn/MarginContainer"]
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 146.0
 margin_bottom = 41.0
 custom_constants/separation = 3
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TriviaBtn/MarginContainer/HBoxContainer"]
 margin_right = 37.0
 margin_bottom = 37.0
 rect_min_size = Vector2( 37, 37 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 expand = true
 stretch_mode = 6
 
-[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TextureButton6/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/InfoBox/MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/GridContainer/TriviaBtn/MarginContainer/HBoxContainer"]
 margin_left = 40.0
 margin_top = 8.0
-margin_right = 133.0
+margin_right = 78.0
 margin_bottom = 28.0
 size_flags_horizontal = 2
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "Modifications"
+text = "Trivia"
 
 [node name="FandomBox" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
 material = ExtResource( 11 )
@@ -522,14 +527,36 @@ text = "Identity Semantics / Etymology of Code"
 align = 1
 autowrap = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer"]
 margin_top = 83.0
 margin_right = 363.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 0, 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 88.0
+margin_right = 363.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 0, 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 363.0
 margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer/MarginContainer"]
+margin_right = 363.0
+margin_bottom = 145.0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
-[node name="IdentitySemanticsLbl" type="Label" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="IdentitySemanticsLbl" type="Label" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
 margin_right = 351.0
 margin_bottom = 283.0
@@ -540,11 +567,22 @@ custom_fonts/font = SubResource( 3 )
 text = "Role in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
 autowrap = true
 
-[node name="MainPortrait" type="TextureRect" parent="HBoxContainer"]
-material = ExtResource( 8 )
-margin_left = 420.0
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+margin_left = 410.0
 margin_right = 1120.0
-margin_bottom = 700.0
+margin_bottom = 710.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="MainPortrait" type="TextureRect" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+material = ExtResource( 8 )
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 705.0
+margin_bottom = 705.0
 rect_min_size = Vector2( 700, 700 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -552,31 +590,42 @@ texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
-[node name="GoldOutline" type="TextureRect" parent="HBoxContainer/MainPortrait"]
-show_behind_parent = true
-material = ExtResource( 9 )
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/MarginContainer/MainPortrait"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 10.0
-margin_bottom = 10.0
+custom_constants/margin_right = -5
+custom_constants/margin_top = -5
+custom_constants/margin_left = -5
+custom_constants/margin_bottom = -5
+
+[node name="GoldOutline" type="TextureRect" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2"]
+unique_name_in_owner = true
+show_behind_parent = true
+material = ExtResource( 9 )
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 705.0
+margin_bottom = 705.0
 mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MainPortrait"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_top = 440
-custom_constants/margin_left = 420
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2"]
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 705.0
+margin_bottom = 705.0
+custom_constants/margin_top = 445
+custom_constants/margin_left = 425
 
-[node name="GalleryBtn" type="TextureButton" parent="HBoxContainer/MainPortrait/MarginContainer"]
-margin_left = 420.0
-margin_top = 440.0
-margin_right = 670.0
-margin_bottom = 540.0
+[node name="GalleryBtn" type="TextureButton" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/MarginContainer"]
+margin_left = 425.0
+margin_top = 445.0
+margin_right = 675.0
+margin_bottom = 545.0
 rect_min_size = Vector2( 250, 100 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -584,22 +633,77 @@ texture_normal = ExtResource( 1 )
 expand = true
 stretch_mode = 5
 
+[node name="CategoryBox" type="PanelContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2"]
+unique_name_in_owner = true
+visible = false
+material = ExtResource( 11 )
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 705.0
+margin_bottom = 705.0
+rect_min_size = Vector2( 200, 700 )
+size_flags_horizontal = 3
+custom_styles/panel = ExtResource( 10 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 704.0
+margin_bottom = 704.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 0
+custom_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer"]
+margin_left = 20.0
+margin_right = 668.0
+margin_bottom = 688.0
+
+[node name="CategoryTitleLbl" type="Label" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 648.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Clan"
+align = 1
+autowrap = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 648.0
+margin_bottom = 688.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="CategoryLbl" type="Label" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 648.0
+margin_bottom = 646.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Role in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
+autowrap = true
+
 [node name="FeaturedBox" type="PanelContainer" parent="HBoxContainer"]
 material = ExtResource( 11 )
-margin_left = 1140.0
-margin_right = 1440.0
+margin_left = 1130.0
+margin_right = 1450.0
 margin_bottom = 710.0
-rect_min_size = Vector2( 300, 700 )
+rect_min_size = Vector2( 320, 700 )
 custom_styles/panel = ExtResource( 10 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/FeaturedBox"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 284.0
+margin_right = 304.0
 margin_bottom = 694.0
 
 [node name="NameLbl" type="Label" parent="HBoxContainer/FeaturedBox/VBoxContainer"]
-margin_right = 268.0
+margin_right = 288.0
 margin_bottom = 38.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
@@ -607,16 +711,25 @@ text = "Featured Art"
 align = 1
 autowrap = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/FeaturedBox/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/FeaturedBox/VBoxContainer"]
 margin_top = 42.0
-margin_right = 268.0
+margin_right = 288.0
 margin_bottom = 678.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/FeaturedBox/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+margin_right = 288.0
+margin_bottom = 616.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
-[node name="PreviewList" type="VBoxContainer" parent="HBoxContainer/FeaturedBox/VBoxContainer/ScrollContainer"]
-margin_right = 268.0
+[node name="PreviewList" type="VBoxContainer" parent="HBoxContainer/FeaturedBox/VBoxContainer/MarginContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 288.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 
@@ -625,7 +738,7 @@ material = ExtResource( 11 )
 margin_left = 1460.0
 margin_right = 1820.0
 margin_bottom = 710.0
-rect_min_size = Vector2( 300, 700 )
+rect_min_size = Vector2( 200, 700 )
 size_flags_horizontal = 3
 custom_styles/panel = ExtResource( 10 )
 
@@ -799,6 +912,7 @@ expand = true
 stretch_mode = 5
 
 [node name="BackBtn" type="TextureButton" parent="."]
+visible = false
 margin_left = 1835.0
 margin_top = 10.0
 margin_right = 1870.0
@@ -811,6 +925,6 @@ expand = true
 flip_h = true
 flip_v = true
 
-[connection signal="pressed" from="HBoxContainer/MainPortrait/MarginContainer/GalleryBtn" to="." method="_on_GalleryBtn_pressed"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/MarginContainer/GalleryBtn" to="." method="_on_GalleryBtn_pressed"]
 [connection signal="pressed" from="TextureRect/GalleryBtn" to="." method="_on_GalleryBtn_pressed"]
 [connection signal="pressed" from="BackBtn" to="." method="_on_BackBtn_pressed"]

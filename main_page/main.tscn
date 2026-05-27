@@ -22,6 +22,7 @@ stretch_mode = 7
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+scroll_horizontal_enabled = false
 
 [node name="ContentBox" type="VBoxContainer" parent="ScrollContainer"]
 unique_name_in_owner = true

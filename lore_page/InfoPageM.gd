@@ -8,9 +8,17 @@ onready var role_lbl = $"%InfoRoleLbl"
 onready var modsbl = $"%InfoModsLbl"
 onready var info_title_lbl = $"%InfoTitleLbl"
 onready var avatar = $"%Avatar"
-onready var main_portrait = $"HBoxContainer/MainPortrait"
-onready var main_portrait_outline = $"HBoxContainer/MainPortrait/GoldOutline"
-onready var featured_list = $"HBoxContainer/FeaturedBox/VBoxContainer/ScrollContainer/PreviewList"
+#onready var main_portrait = $"HBoxContainer/MainPortrait"
+onready var main_portrait = $"%MainPortrait"
+onready var main_portrait_outline = $"%GoldOutline"
+
+onready var category_box = $"%CategoryBox"
+onready var category_title_lbl = $"%CategoryTitleLbl"
+onready var category_lbl = $"%CategoryLbl"
+
+
+onready var featured_scroll = $"%ScrollContainer"
+onready var featured_list = $"%PreviewList"
 onready var clan_grid = $"HBoxContainer/ClanBox/VBoxContainer/ScrollContainer/GridContainer"
 onready var clan_nav_box = $"HBoxContainer/ClanBox/VBoxContainer/ClanNavBox"
 
@@ -29,6 +37,7 @@ var featured_zoomed_pic_id
 
 const GALLERY_DIR = "res://gallery/arts/"
 const PREVIEW_CORNER_RADIUS = 25.0
+const DEFAULT_SCROLLBAR_WIDTH = 12.0
 const CLAN_GRID_COLUMNS = 3
 const CLAN_GRID_SEPARATION = 10.0
 const CLAN_NAV_PREVIEW_SIZE = 50.0
@@ -53,6 +62,23 @@ onready var DEFAULTS = [
 #	{"lbl": name_lbl, "id": "name"}
 ]
 
+onready var categories_list = {
+		"concept_role": $"%ConceptBtn",
+		"modifications": $"%ModBtn",
+		"character": $"%CharBtn",
+		"relationship": $"%RelationBtn",
+		"trivia": $"%TriviaBtn"}
+
+const CATEGORIES = {
+		"concept_role": "Concept & Role",
+		"modifications": "Physical Embodiment & Technology Integration",
+		"character": "Character & Psychological Portrait",
+		"relationship": "Social Connections & Dynamics",
+		"trivia": "Trivia & Living Details"}
+	
+
+onready var main_btn = $"%MainBtn"
+
 func _ready():
 	if main_portrait.material:
 		main_portrait.material = main_portrait.material.duplicate()
@@ -62,6 +88,10 @@ func _ready():
 		_update_main_portrait_outline_size()
 	_setup_gold_panel_boxes(self)
 	_fill_clan_nav_box()
+	
+	for i in categories_list:
+		categories_list[i].connect("pressed", self, "_show_category", [i])
+	main_btn.connect("pressed", self, "appear_anim", [[category_box], true])
 
 
 func _process(_delta):
@@ -135,16 +165,31 @@ func _clear_featured_list():
 	featured_pics = {}
 
 
-func _fill_featured_list(char_id):
-	_clear_featured_list()
-
-	var preview_size = featured_list.rect_size.x
+func _get_featured_preview_size():
+	var preview_size = featured_scroll.rect_size.x
 	if preview_size <= 0.0:
 		preview_size = $"HBoxContainer/FeaturedBox".rect_size.x - 32.0
 	if preview_size <= 0.0:
 		preview_size = featured_list.rect_min_size.x
 	if preview_size <= 0.0:
-		preview_size = 268.0
+		preview_size = 338.0
+
+	var scrollbar_width = DEFAULT_SCROLLBAR_WIDTH
+	var scrollbar = featured_scroll.get_v_scrollbar()
+	if scrollbar:
+		if scrollbar.rect_min_size.x > 0.0:
+			scrollbar_width = scrollbar.rect_min_size.x
+		elif scrollbar.rect_size.x > 0.0:
+			scrollbar_width = scrollbar.rect_size.x
+
+	return max(1.0, preview_size - scrollbar_width) - 10
+
+
+func _fill_featured_list(char_id):
+	_clear_featured_list()
+
+	var preview_size = _get_featured_preview_size()
+	featured_list.rect_min_size.x = preview_size
 
 	for art_id in DB.gallery.keys():
 		var tags = parse_json(DB.gallery[art_id].get("tags", "[]"))
@@ -166,7 +211,7 @@ func _fill_featured_list(char_id):
 		preview.expand = true
 		preview.stretch_mode = TextureRect.STRETCH_SCALE
 		preview.rect_min_size = Vector2(preview_size, preview_size)
-		preview.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		preview.size_flags_horizontal = 0
 		preview.mouse_filter = Control.MOUSE_FILTER_STOP
 		preview.connect("gui_input", self, "_on_featured_preview_gui_input", [art_id])
 		featured_list.add_child(preview)
@@ -304,18 +349,60 @@ func fill(char_id):
 	if clan:
 		_fill_clan_grid(clan)
 		var portrait_texture = load(str("res://lore_page/", clan, "/inf_page/", char_id, ".png"))
-		avatar.set("texture", portrait_texture)
-		if main_portrait.material:
-			_update_main_portrait_size()
-			_update_main_portrait_outline_size()
-			main_portrait.material.set_shader_param("portrait_texture", portrait_texture)
-			main_portrait.material.set_shader_param("portrait_size", portrait_texture.get_size())
+		if portrait_texture:
+			avatar.set("texture", portrait_texture)
+			if main_portrait.material:
+				_update_main_portrait_size()
+				_update_main_portrait_outline_size()
+				main_portrait.material.set_shader_param("portrait_texture", portrait_texture)
+				main_portrait.material.set_shader_param("portrait_size", portrait_texture.get_size())
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func _categorybox_appear():
+	category_box.modulate.a = 0
+	category_box.visible = true
+	var appearTW = Tween.new()
+	self.add_child(appearTW)
+	appearTW.connect("tween_all_completed", appearTW, "queue_free")
+	appearTW.interpolate_property(category_box, "modulate:a", 0, 1, 0.3)
+	appearTW.start()
+
+func appear_anim(objects: Array, is_reversed = false):
+	
+	var appearTW = Tween.new()
+	self.add_child(appearTW)
+	appearTW.connect("tween_all_completed", appearTW, "queue_free")
+	
+	for i in objects:
+		if is_reversed and (!i.visible or i.modulate.a == 0):
+			continue
+		i.visible = true
+		appearTW.connect("tween_all_completed", i, "set", ["visible", !is_reversed])
+#		i.modulate.a = float(!is_reversed)
+		appearTW.interpolate_property(i, "modulate:a", float(is_reversed), float(!is_reversed), 0.5)
+	appearTW.start()
+	return appearTW
+	
+
+func _show_category(id):
+	if !category_box.visible:
+		category_title_lbl.text = str(id)
+		category_lbl.text = DB.char[page_char_id][id]
+		appear_anim([category_box])
+	else:
+		var a = appear_anim([category_lbl, category_title_lbl], true)
+		yield(a, "tween_all_completed")
+		category_title_lbl.text = CATEGORIES[id]
+		category_lbl.text = DB.char[page_char_id][id]
+		appear_anim([category_lbl, category_title_lbl], false)
+		
+
+
 
 
 func _on_GalleryBtn_pressed():

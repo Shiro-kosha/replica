@@ -117,5 +117,5 @@ shader_param/anisotropy_width = 0.1
 shader_param/mouse_pos = Vector2( 0, 0 )
 shader_param/screen_size = Vector2( 1024, 768 )
 shader_param/target_size = Vector2( 700, 700 )
-shader_param/outline_width = 10.0
+shader_param/outline_width = 5.0
 shader_param/alpha_threshold = 0.01
