@@ -265,11 +265,13 @@
     },
     "Ai Sisters [YY] 2k": {
       "clan": "AI Sisters",
-      "tags": "[]"
+      "tags": "[]",
+      "column": 1
     },
     "Twins 2k": {
       "clan": "IKI-G clan",
-      "tags": "[\"crimson\", \"sour_cherry\"]"
+      "tags": "[\"crimson\", \"sour_cherry\"]",
+      "column": 2
     },
     "Kuroe [3]": {
       "clan": "IKI-G clan",
@@ -294,7 +296,7 @@
     },
     "black_stream": {
       "clan": "iki_g_clan",
-      "top": 430,
+      "top": 490,
       "left": "0.9",
       "right": "0.9",
       "binds": "[\"way\"]"

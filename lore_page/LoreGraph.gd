@@ -55,11 +55,11 @@ func _process(_delta):
 #			print(mat.get_shader_param("mouse_pos"))
 
 func draw():
-	for i in points:
+	for i in points.keys():
 		if clan_tree[i].has("binds"):
 			for bind in parse_json(clan_tree[i]["binds"]):
 				if !points.has(bind):
-					return
+					continue
 				var line = Line2D.new()
 				line.width = 2
 				line.default_color = Color("a18162")
