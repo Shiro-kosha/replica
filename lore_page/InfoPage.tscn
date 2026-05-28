@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://lore_page/UI/gallery_button.png" type="Texture" id=1]
 [ext_resource path="res://lore_page/iki_g_clan/inf_page/photo_frame.png" type="Texture" id=2]
@@ -46,7 +46,14 @@ use_filter = true
 font_data = ExtResource( 12 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 18
 font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 18
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -701,11 +708,11 @@ margin_bottom = 636.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-custom_fonts/mono_font = ExtResource( 4 )
 custom_fonts/bold_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
-bbcode_text = "Role in the clan: No dataRole in the clan: [quote]No dataRole[/quote] in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
-text = "Role in the clan: No dataRole in the clan: [quote]No dataRole[/quote] in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
+bbcode_text = "aaaa [b] aaaa [/b] aaa"
+text = "aaaa  aaaa  aaa"
 
 [node name="FeaturedBox" type="PanelContainer" parent="HBoxContainer"]
 material = ExtResource( 11 )
