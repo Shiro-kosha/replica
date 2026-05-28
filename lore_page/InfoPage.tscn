@@ -648,20 +648,20 @@ custom_styles/panel = ExtResource( 10 )
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 704.0
-margin_bottom = 704.0
+margin_right = 694.0
+margin_bottom = 694.0
 custom_constants/margin_right = 20
 custom_constants/margin_top = 0
 custom_constants/margin_left = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer"]
 margin_left = 20.0
-margin_right = 668.0
-margin_bottom = 688.0
+margin_right = 658.0
+margin_bottom = 678.0
 
 [node name="CategoryTitleLbl" type="Label" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 648.0
+margin_right = 638.0
 margin_bottom = 38.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 4 )
@@ -669,24 +669,38 @@ text = "Clan"
 align = 1
 autowrap = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 648.0
-margin_bottom = 688.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-scroll_horizontal_enabled = false
-
-[node name="CategoryLbl" type="Label" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="CategoryLbl1" type="Label" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 648.0
-margin_bottom = 646.0
+visible = false
+margin_top = 42.0
+margin_right = 638.0
+margin_bottom = 678.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "Role in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
 autowrap = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 638.0
+margin_bottom = 678.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="CategoryLbl" type="RichTextLabel" parent="HBoxContainer/MarginContainer/MainPortrait/MarginContainer2/CategoryBox/MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 638.0
+margin_bottom = 636.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/mono_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Role in the clan: No dataRole in the clan: [quote]No dataRole[/quote] in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
+text = "Role in the clan: No dataRole in the clan: [quote]No dataRole[/quote] in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
 
 [node name="FeaturedBox" type="PanelContainer" parent="HBoxContainer"]
 material = ExtResource( 11 )

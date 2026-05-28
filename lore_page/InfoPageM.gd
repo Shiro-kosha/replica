@@ -390,15 +390,16 @@ func appear_anim(objects: Array, is_reversed = false):
 	
 
 func _show_category(id):
+	
 	if !category_box.visible:
-		category_title_lbl.text = str(id)
-		category_lbl.text = DB.char[page_char_id][id]
+		category_title_lbl.text = CATEGORIES[id]
+		category_lbl.bbcode_text = str(DB.char[page_char_id][id], "[img=30x30]res://lore_page/UI/categories_buttons/trivia.png[/img]")
 		appear_anim([category_box])
 	else:
 		var a = appear_anim([category_lbl, category_title_lbl], true)
 		yield(a, "tween_all_completed")
 		category_title_lbl.text = CATEGORIES[id]
-		category_lbl.text = DB.char[page_char_id][id]
+		category_lbl.bbcode_text = str(DB.char[page_char_id][id], "[img]res://lore_page/UI/categories_buttons/trivia.png[/img]")
 		appear_anim([category_lbl, category_title_lbl], false)
 		
 
