@@ -356,6 +356,8 @@ func fill(char_id):
 				_update_main_portrait_outline_size()
 				main_portrait.material.set_shader_param("portrait_texture", portrait_texture)
 				main_portrait.material.set_shader_param("portrait_size", portrait_texture.get_size())
+	
+	appear_anim([category_box], true)
 
 
 

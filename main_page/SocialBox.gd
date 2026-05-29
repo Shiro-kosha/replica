@@ -10,12 +10,22 @@ onready var animation_player = $AnimationPlayer
 onready var nine_patch_rect = $"%NinePatchRect"
 
 var open = false
+onready var LINKS = {
+	$"%KofiBtn": "https://ko-fi.com/kosh_a",
+	$"%YoutubeBtn": "https://www.youtube.com/@shiro.kosh_a",
+	$"%DiscBtn": "",
+	$"%PatronBtn": "https://www.patreon.com/kosh_a",
+	$"%InstBtn": "https://www.instagram.com/shiro.kosh_a/",
+	$"%XBtn": "https://x.com/shiro_kosh_a"}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for i in btns:
 		i.connect("mouse_entered", self, "glow", [i, true])
 		i.connect("mouse_exited", self, "glow", [i, false])
+	for i in LINKS.keys():
+		if LINKS[i]:
+			i.connect("pressed", OS, "shell_open", [LINKS[i]])
 
 func _on_OpenBtn_pressed():
 	if !open:

@@ -88,6 +88,8 @@ func fill(tag = null):
 		var img = iload(path)
 		var img_size = img.get_size()
 		var TR = TextureButton.new()
+		TR.modulate.a = 0
+		TR.connect("ready", self, "appear_anim", [TR])
 		var col
 		if tag:
 			col = get_childless_col(col_num)
@@ -120,7 +122,8 @@ func fill(tag = null):
 				TR.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 				empty_window.add_child(TR)
 		
-		yield(get_tree().create_timer(0.1), "timeout")
+		yield(get_tree(), "idle_frame")
+#		yield(get_tree().create_timer(0.1), "timeout")
 		pics_list[i] = img
 		
 	if empty_window:
@@ -171,3 +174,12 @@ func zoom_next_pic(order):
 	var new_key = keys[new_index]
 	zoom_inst.set_image(pics_list[new_key])
 	zoomed_pic_id = new_key
+
+func appear_anim(object):
+#	object.modulate.a = 0
+	var appearTW = Tween.new()
+	self.add_child(appearTW)
+	appearTW.connect("tween_all_completed", appearTW, "queue_free")
+	appearTW.interpolate_property(object, "modulate:a", 0, 1, 0.8, Tween.TRANS_CUBIC, Tween.EASE_IN, 0.1)
+	appearTW.start()
+	return appearTW

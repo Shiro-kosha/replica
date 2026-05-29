@@ -9,7 +9,7 @@ onready var SCENES = {
 	SECTIONS.MAIN : preload("res://main_page/TitlePage.tscn"),
 	SECTIONS.GALLERY : preload("res://gallery/Gallery.tscn"),
 	SECTIONS.LORE :  preload("res://lore_page/ArtBox.tscn"),
-#	SECTIONS.ABOUT : preload("res://main_page/ArtBox.tscn"),
+	SECTIONS.ABOUT : preload("res://about/About.tscn"),
 	SECTIONS.LORE_GRAPH: preload("res://lore_page/LoreGraph.tscn"),
 	}
 onready var spacer = $ScrollContainer/ContentBox/Spacer
