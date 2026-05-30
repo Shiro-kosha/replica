@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ss"
+config/name="Replica"
 run/main_scene="res://main_page/main.tscn"
 config/icon="res://icon.png"
 
