@@ -87,7 +87,7 @@ func _ready():
 		main_portrait_outline.material = main_portrait_outline.material.duplicate()
 		_update_main_portrait_outline_size()
 	_setup_gold_panel_boxes(self)
-	_fill_clan_nav_box()
+#	_fill_clan_nav_box()
 	
 	for i in categories_list:
 		categories_list[i].connect("pressed", self, "_show_category", [i])
