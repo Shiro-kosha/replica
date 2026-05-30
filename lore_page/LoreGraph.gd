@@ -85,11 +85,11 @@ func fill_info(clan):
 	var clan_info = DB.clans[clan]
 	info_title_lbl.text = clan_info.name
 #
-	philosophy_lbl.text = str(" ", clan_info.philosophy)
-	structure_lbl.text = str(" ", clan_info.structure)
-	location_lbl.text = str(" ", clan_info.location)
-	resources_lbl.text = str(" ", clan_info.resources)
-#	ex_relation_lbl.text = str(" ", clan_info.ex_relation)
+	philosophy_lbl.bbcode_text = str(" ", clan_info.philosophy)
+	structure_lbl.bbcode_text = str(" ", clan_info.structure)
+	location_lbl.bbcode_text = str(" ", clan_info.location)
+	resources_lbl.bbcode_text = str(" ", clan_info.resources)
+	ex_relation_lbl.bbcode_text = str(" ", clan_info.ex_relation)
 #
 	
 	
