@@ -5,12 +5,12 @@ onready var dis_tw = $"%DisTW"
 class_name Main
 enum SECTIONS { MAIN, GALLERY, LORE, ABOUT, LORE_GRAPH}
 
-onready var SCENES = {
-	SECTIONS.MAIN : preload("res://main_page/TitlePage.tscn"),
-	SECTIONS.GALLERY : preload("res://gallery/Gallery.tscn"),
-	SECTIONS.LORE :  preload("res://lore_page/ArtBox.tscn"),
-	SECTIONS.ABOUT : preload("res://about/About.tscn"),
-	SECTIONS.LORE_GRAPH: preload("res://lore_page/LoreGraph.tscn"),
+const SCENE_PATHS = {
+	SECTIONS.MAIN : "res://main_page/TitlePage.tscn",
+	SECTIONS.GALLERY : "res://gallery/Gallery.tscn",
+	SECTIONS.LORE : "res://lore_page/ArtBox.tscn",
+	SECTIONS.ABOUT : "res://about/About.tscn",
+	SECTIONS.LORE_GRAPH: "res://lore_page/LoreGraph.tscn",
 	}
 onready var spacer = $ScrollContainer/ContentBox/Spacer
 
@@ -42,8 +42,12 @@ func load_to_mainbox(content):
 	if dis_tw.is_active():
 		yield(dis_tw, "tween_all_completed")
 	
-	if SCENES.keys().has(content):
-		var loaded_content = SCENES[content].instance()
+	if SCENE_PATHS.keys().has(content):
+		var scene = load(SCENE_PATHS[content])
+		if not scene:
+			printerr("Cannot load scene: ", SCENE_PATHS[content])
+			return null
+		var loaded_content = scene.instance()
 		loaded_content.modulate.a = 0
 		content_box.add_child(loaded_content)
 		dis_tw.interpolate_property(loaded_content, "modulate:a", 0, 1, 0.2)
@@ -77,10 +81,13 @@ func _on_gallery_load_request(char_id):
 	if dis_tw.is_active():
 		yield(dis_tw, "tween_all_completed")
 	
-	var loaded_content = SCENES[SECTIONS.GALLERY].instance()
+	var scene = load(SCENE_PATHS[SECTIONS.GALLERY])
+	if not scene:
+		printerr("Cannot load scene: ", SCENE_PATHS[SECTIONS.GALLERY])
+		return
+	var loaded_content = scene.instance()
 	loaded_content.modulate.a = 0
 	content_box.add_child(loaded_content)
 	dis_tw.interpolate_property(loaded_content, "modulate:a", 0, 1, 0.2)
 	dis_tw.start()
 	loaded_content.fill(char_id)
-
