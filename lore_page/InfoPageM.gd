@@ -337,7 +337,7 @@ func fill(char_id):
 		else:
 			is_title_lbl.text = "Identity Semantics"
 		
-		identity_semantics_lbl.text = char_data.identity_semantics
+		identity_semantics_lbl.bbcode_text = char_data.identity_semantics
 		
 	else:
 		info_title_lbl.text = char_id

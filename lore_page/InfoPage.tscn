@@ -562,16 +562,18 @@ margin_bottom = 145.0
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 
-[node name="IdentitySemanticsLbl" type="Label" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
+[node name="IdentitySemanticsLbl" type="RichTextLabel" parent="HBoxContainer/VBoxContainer/FandomBox/MarginContainer/VBoxContainer/MarginContainer/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 351.0
-margin_bottom = 283.0
+margin_right = 363.0
+margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 20 )
-text = "Role in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataRole in the clan: No dataaaasdasdads"
-autowrap = true
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/bold_font = SubResource( 7 )
+custom_fonts/normal_font = ExtResource( 20 )
+bbcode_enabled = true
+bbcode_text = "aaaa [b] aaaa [/b] aaa"
+text = "aaaa  aaaa  aaa"
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 margin_left = 410.0
