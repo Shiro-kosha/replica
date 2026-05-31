@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://lore_page/iki_g_clan/clan_tree/rethink_c_frame.png" type="Texture" id=1]
 [ext_resource path="res://lore_page/LoreGraphPoint.gd" type="Script" id=2]
 [ext_resource path="res://lore_page/iki_g_clan/clan_tree/circle_frame.png" type="Texture" id=3]
 [ext_resource path="res://main_page/GoldMaterial.tres" type="Material" id=4]
@@ -24,7 +23,6 @@ margin_top = -110.0
 margin_right = 110.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 220, 220 )
-texture_normal = ExtResource( 1 )
 expand = true
 
 [node name="Frame" type="TextureRect" parent="LoreGraphPoint2d/LoreGraphPoint"]
