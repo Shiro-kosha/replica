@@ -317,7 +317,7 @@
       "top": 600,
       "left": "0.5",
       "right": "0.5",
-      "binds": "[\"way\", \"crimson\", \"saros\", \"rethink\", \"zatcy\"]"
+      "binds": "[\"way\", \"crimson\", \"rethink\"]"
     },
     "black_stream": {
       "clan": "iki_g_clan",
@@ -330,35 +330,34 @@
       "clan": "iki_g_clan",
       "top": 300,
       "left": "0.8",
-      "right": "0.8",
-      "binds": "[\"crimson\"]"
+      "right": "0.8"
     },
     "shift_k": {
       "clan": "iki_g_clan",
       "top": 300,
       "left": "0.2",
       "right": "0.2",
-      "binds": "[\"saros\"]"
+      "binds": "[\"cicat\"]"
     },
     "crimson": {
       "clan": "iki_g_clan",
       "top": 900,
-      "left": "0.65",
-      "right": "0.65",
+      "left": "0.5",
+      "right": "0.5",
       "binds": "[\"saros\"]"
     },
     "sour_cherry": {
       "clan": "iki_g_clan",
       "top": 900,
-      "left": "0.9",
-      "right": "0.9",
+      "left": "0.8",
+      "right": "0.8",
       "binds": "[\"crimson\"]"
     },
     "saros": {
       "clan": "iki_g_clan",
       "top": 900,
-      "left": "0.35",
-      "right": "0.35"
+      "left": "0.2",
+      "right": "0.2"
     },
     "zatcy": {
       "clan": "no_clan",
