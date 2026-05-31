@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://about/about.jpg" type="Texture" id=1]
+[ext_resource path="res://about/about.png" type="Texture" id=1]
 
 [node name="AboutBox" type="MarginContainer"]
 margin_top = 184.0
