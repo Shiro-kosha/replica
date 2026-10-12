@@ -18,7 +18,7 @@
 [ext_resource path="res://lore_page/UI/categories_buttons/trivia.png" type="Texture" id=16]
 [ext_resource path="res://lore_page/UI/categories_buttons/concept_role.png" type="Texture" id=17]
 [ext_resource path="res://lore_page/UI/categories_buttons/modifications.png" type="Texture" id=18]
-[ext_resource path="res://data/Inter-Light.otf" type="DynamicFontData" id=19]
+[ext_resource path="res://data/Comfortaa-SemiBold.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://data/twi.tres" type="DynamicFont" id=20]
 
 [sub_resource type="DynamicFont" id=2]
